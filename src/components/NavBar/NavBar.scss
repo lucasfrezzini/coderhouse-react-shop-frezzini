@@ -1,0 +1,44 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: 'Julius Sans One', sans-serif;
+
+    background-color: #222;
+    padding: 10px 0;
+
+    .logo {
+        width: 220px;
+        height: auto;
+    }
+
+
+    nav ul{
+        display: flex;
+
+        li {
+            list-style: none;
+            margin: 0 20px;
+            font-size: 18px;
+            line-height: 20px;
+
+            &:nth-child(5) {
+                margin-left: 50px;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+
+    button {
+        background: none;
+        border: none;
+        font-size: 25px;
+        color: white;
+        cursor: pointer;
+    }
+}
