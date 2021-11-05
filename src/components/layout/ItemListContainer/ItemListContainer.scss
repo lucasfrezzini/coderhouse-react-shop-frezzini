@@ -1,0 +1,30 @@
+.ItemListContainer {
+	height: 100vh;
+	background-color: #222;
+	padding-top: 60px;
+
+	h2 {
+		font-family: "Julius Sans One", sans-serif;
+		color: white;
+		font-weight: normal;
+		margin-left: 250px;
+		width: 250px;
+	}
+
+	.ItemList {
+		display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-gap: 15px;
+		margin: 0 30px;
+
+		.ItemContainer {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 300px;
+			background: #181818;
+		}
+
+	}
+
+}
