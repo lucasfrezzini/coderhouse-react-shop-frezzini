@@ -1,0 +1,27 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Lato', sans-serif;
+}
+
+h1 {
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 48px;
+	font-weight: normal;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+}

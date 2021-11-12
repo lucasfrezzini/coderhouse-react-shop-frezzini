@@ -1,17 +1,25 @@
 header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  font-family: "Julius Sans One", sans-serif;
-
-  background-color: #222;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	font-family: "Julius Sans One", sans-serif;
   padding: 10px 0;
+	background-color: #222;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 70px;
+	}
+
+
+
 
   .logo {
     color: white;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 36px;
   }
 
   nav ul {
