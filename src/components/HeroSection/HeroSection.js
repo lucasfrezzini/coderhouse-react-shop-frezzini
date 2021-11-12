@@ -14,7 +14,7 @@ const HeroSection = () => {
 						text="Go to premium items"
 						icon={<FiArrowRight/>}
 						type="button"
-						size="Button__large"
+						variant="Button__large"
 					/>
 				</div>
 			</div>

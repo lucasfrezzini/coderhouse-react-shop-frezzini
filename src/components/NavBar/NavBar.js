@@ -4,7 +4,7 @@ import { CartWidget } from '../CounterWidget/CounterWidget';
 
 const NavBar = ({cart}) => {
 	return (
-		<header>
+		<header className="NavBar">
 			<div className="container">
 				<a href="index.html" className="logo">VALKYUM</a>
 				<nav>

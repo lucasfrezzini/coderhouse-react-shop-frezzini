@@ -1,0 +1,51 @@
+.Item {
+	font-family: 'Lato', sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	aspect-ratio: 1/1;
+	background: #2C2C2C;
+	position: relative;
+	transition: all 1s;
+
+	&:hover {
+		background-color: #181818;
+
+		header, Button {
+			display: flex;
+		}
+	}
+
+	img {
+		max-width: 250px;
+		height: auto;
+	}
+
+	header {
+		position: absolute;
+		bottom: 0;
+		padding: 30px;
+		justify-content: space-between;
+		align-items: flex-end;
+		width: 100%;
+		display: none;
+		transition: all .5s;
+
+		h4 {
+			font-size: 16px;
+			font-weight: normal;
+			margin-bottom: 5px;
+		}
+		h3 {
+			font-family: 'Lato', sans-serif;
+			font-size: 20px;
+			font-weight: bold;
+		}
+	}
+
+	.Button {
+		display: none;
+	}
+
+}

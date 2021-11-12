@@ -11,6 +11,7 @@
 	font-weight: bold;
 
 	svg {
+		color: black;
 		margin-left: 10px;
 		font-size: 24px;
 	}
@@ -19,7 +20,20 @@
 		font-size: 18px;
 
 		svg {
-			font-size: 30px;
+			font-size: 26px;
+		}
+	}
+
+	&__addCart {
+		background: none;
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+		padding: 0;
+
+		svg {
+			color: white;
 		}
 	}
 }

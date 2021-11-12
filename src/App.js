@@ -1,13 +1,11 @@
-import { useState } from "react";
 import { ItemListContainer } from "./components/layout/ItemListContainer/ItemListContainer";
 import { NavBar } from "./components/NavBar/NavBar";
 import { HeroSection } from "./components/HeroSection/HeroSection";
-import { ItemCount } from "./components/ItemCount/ItemCount";
 
 import "./App.scss";
 
 function App() {
-	const [cart, setCart] = useState(0);
+	// const [cart, setCart] = useState(0);
 	// const stock = 5;
 
 	// const onAdd = (value) => {
@@ -17,11 +15,9 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar cart={cart}/>
+      <NavBar cart={10}/>
 			<HeroSection />
-			<ItemListContainer
-				greeting="Hola señor Rodrigo Collins"
-			/>
+			<ItemListContainer />
     </div>
   );
 }
