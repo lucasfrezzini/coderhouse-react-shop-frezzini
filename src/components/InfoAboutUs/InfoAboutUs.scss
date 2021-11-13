@@ -1,0 +1,27 @@
+.InfoAboutUs {
+	aspect-ratio: 1/1;
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+
+	h2 {
+		font-family: 'Julius Sans One', sans-serif;
+		font-weight: normal;
+		font-size: 48px;
+		line-height: 58px;
+	}
+
+	h3 {
+		font-family: 'Lato', sans-serif;
+		font-size: 24px;
+		margin: 35px 0;
+	}
+}
+
+@media (min-width: 1200px){
+	.InfoAboutUs {
+		padding: 50px 250px 50px 50px;
+	}
+}

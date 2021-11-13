@@ -1,0 +1,30 @@
+.Footer {
+	background-color: #181818;
+	text-align: center;
+	padding: 50px 0;
+	font-family: "Julius Sans One", sans-serif;
+
+	.logo {
+		font-size: 32px;
+		text-decoration: none;
+		font-weight: normal;
+	}
+
+	&__sections {
+		margin: 50px 0;
+
+		a {
+			color: white;
+			font-size: 18px;
+			text-decoration: none;
+			margin: 0 15px;
+		}
+	}
+
+	&__socials a {
+		font-size: 24px;
+	}
+	margin: 0 15px;
+
+}
+

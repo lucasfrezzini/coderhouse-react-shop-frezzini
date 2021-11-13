@@ -1,0 +1,15 @@
+.SectionHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	h3 {
+		margin: 60px 0;
+	}
+
+	button {
+		position: absolute;
+		right: 0;
+	}
+}
