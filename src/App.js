@@ -8,15 +8,9 @@ import { InfoAboutUs } from "./components/InfoAboutUs/InfoAboutUs";
 
 import imgAboutUs from '../src/assets/images/about-us-bg.png';
 import Footer from "./components/Footer/Footer";
+import ItemDetailContainer from "./components/layout/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
-	// const [cart, setCart] = useState(0);
-	// const stock = 5;
-
-	// const onAdd = (value) => {
-	// 	setCart(cart + value);
-	// 	alert('Cargado al carrito ' + cart + ' productos.')
-	// }
 
   return (
     <div className="App">
@@ -33,6 +27,7 @@ function App() {
 					text="Our website offers nearly a thousand different items including replicas of original Viking artifacts to modern day inspirations."
 				/>
 			</SectionAboutUs>
+			<ItemDetailContainer/>
 			<Footer/>
     </div>
   );

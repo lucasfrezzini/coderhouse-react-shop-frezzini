@@ -28,7 +28,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 				type="button"
 				onClick={handleCantUp}
 				className="btn_cart"
-				disabled={cant === 5}
+				disabled={cant === stock}
 			>
 				+
 			</button>

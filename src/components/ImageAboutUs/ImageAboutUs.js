@@ -2,7 +2,7 @@ import './ImageAboutUs.scss';
 
 const ImageAboutUs = ({img, alt}) => {
     return(
-        <div class="ImageAboutUs">
+        <div className="ImageAboutUs">
                 <img src={img} alt={alt} />
         </div>
     );

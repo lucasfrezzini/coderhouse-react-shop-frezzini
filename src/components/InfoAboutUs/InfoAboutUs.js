@@ -4,7 +4,7 @@ import './InfoAboutUs.scss';
 
 const InfoAboutUs = ({title, text}) => {
     return (
-        <div class="InfoAboutUs">
+        <div className="InfoAboutUs">
             <h2>{title}</h2>
             <h3>{text}</h3>
             <Button
