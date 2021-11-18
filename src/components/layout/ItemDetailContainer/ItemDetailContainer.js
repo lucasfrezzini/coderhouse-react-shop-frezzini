@@ -15,18 +15,17 @@ const ItemDetailContainer = () => {
 			.then((data) => {
 				setItem(data)
 				setLoading(false)
-				console.log(item);
 			})
 	}, [])
 
 	return (
-		<div>
+		<>
 			{
 				loading
 					? <h2>Cargando...</h2>
 					: <ItemDetail item={item} />
 			}
-		</div>
+		</>
 	)
 }
 

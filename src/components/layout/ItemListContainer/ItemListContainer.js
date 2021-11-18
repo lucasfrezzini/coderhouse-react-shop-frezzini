@@ -33,7 +33,6 @@ const ItemListContainer = () => {
 			.then((data) => {
 				setProducts(data);
 				setLoading(false);
-				console.log(products)
 			})
 	}, [])
 
