@@ -1,7 +1,10 @@
-import { React, useState } from 'react'
-import './ItemCount.css';
+import React, { useState } from 'react'
+import './ItemCount.scss';
 
-const ItemCount = ({stock, initial, onAdd}) => {
+import { FiArrowRight } from "react-icons/fi";
+
+
+const ItemCount = ({stock, initial}) => {
 	const initialCant = initial || 1;
 	const [cant, setCant] = useState(initialCant);
 
@@ -14,32 +17,25 @@ const ItemCount = ({stock, initial, onAdd}) => {
 	}
 
 	return (
-		<div>
+		<div className="ItemCount">
 			<button
 				type="button"
 				disabled={cant === 0}
 				onClick={handleCantDown}
-				className="btn_cart"
+				className="btn_quantity btn_quantity--quit"
 			>
-				-
+				<FiArrowRight />
 			</button>
 			<span>{cant}</span>
 			<button
 				type="button"
 				onClick={handleCantUp}
-				className="btn_cart"
+				className="btn_quantity btn_quantity--add"
 				disabled={cant === stock}
 			>
-				+
+				<FiArrowRight />
 			</button>
-			<br/>
-			<button
-				type="button"
-				className="btn_addCart"
-				onClick={() => onAdd(cant)}
-			>
-				Agregar al carrito
-			</button>
+
 		</div>
 	)
 }

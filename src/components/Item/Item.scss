@@ -16,10 +16,19 @@
 			display: flex;
 		}
 	}
-
+	a {
+	}
 	img {
+		cursor: url('../../assets/images/eye.svg'), auto;
 		max-width: 250px;
 		height: auto;
+		transition: all .5s;
+		opacity: 1;
+
+		&:hover {
+			opacity: .4;
+			transform: rotate(10deg);
+		}
 	}
 
 	header {

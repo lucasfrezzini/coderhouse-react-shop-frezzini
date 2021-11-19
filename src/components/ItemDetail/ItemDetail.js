@@ -12,22 +12,22 @@ import 'swiper/modules/virtual/virtual.scss'; // Pagination module
 
 import { useState, useEffect } from 'react';
 import Button from '../Button/Button';
+import {ItemCount} from '../ItemCount/ItemCount';
 import { FiShoppingCart } from 'react-icons/fi';
 
 import './ItemDetail.scss';
 // import imgSlider from '../../assets/images/slider.jpg'
 
-const ItemDetail = (props) => {
+const ItemDetail = ({item}) => {
 	const [images, setImages] = useState([]);
 
 	useEffect(() => {
 		try {
-			setImages(props.item.images)
-			console.log(images)
+			setImages(item.images)
 		} catch (error){
 			console.log(error)
 		}
-	}, [props.item.images])
+	}, [item.images])
 
 	return (
 		<section className="ItemDetail" >
@@ -45,30 +45,30 @@ const ItemDetail = (props) => {
 								key={index}
 								virtualIndex={index}
 							>
-								{<img src={img} alt={props.item.name }/>}
+								{<img src={img} alt={item.name }/>}
 							</SwiperSlide>
 						))}
 					</Swiper>
 				</div>
 				<div className="ItemDetail__info">
-					<h1>{props.item.name}</h1>
-					{images.map(img => {
-						<p>{props.item.description}</p>
-					})}
-					<h2>$ {props.item.price}</h2>
+					<h1>{item.name}</h1>
+					<h2>$ {item.price}</h2>
 					<div>
 						<h3>Description</h3>
-						<p>{props.item.description}</p>
+						<p>{item.description}</p>
 					</div>
 					<div>
 						<h3>Sizes</h3>
-						<p>{props.item.sizes}</p>
+						<p>{item.sizes}</p>
+					</div>
+					<div>
+						<h3>Quantity</h3>
+						<ItemCount stock={10} initial={1} />
 					</div>
 					<Button
 						text="Add to cart"
 						icon={<FiShoppingCart/>}
 						type="button"
-						variant=""
 					/>
 				</div>
 			</div>
