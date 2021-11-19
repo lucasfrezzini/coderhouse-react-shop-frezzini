@@ -5,7 +5,7 @@ const ItemList = ({products}) => {
 
 	return (
 		<div className="ItemList">
-			{products.slice(0,8).map((item, idx) => (
+			{products.map((item, idx) => (
 				<Item {...item} key={idx}/>
 			))}
 		</div>

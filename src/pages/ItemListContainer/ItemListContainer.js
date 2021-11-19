@@ -18,6 +18,7 @@ const ItemListContainer = () => {
 				setProducts(data);
 				setLoading(false);
 			})
+			.catch(e => console.log(e))
 	}, [])
 
 	return (

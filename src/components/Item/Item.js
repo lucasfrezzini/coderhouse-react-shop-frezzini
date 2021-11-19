@@ -5,10 +5,7 @@ import Button from '../Button/Button';
 
 const Item = ({name, category, price, main_image}) => {
 	return (
-		<div
-			className="Item"
-			key={`item-${name}`}
-		>
+		<div className="Item" >
 			<Button
 				text="Add to cart"
 				icon={<FiShoppingCart/>}
