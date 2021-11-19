@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import './ItemCount.scss';
+import React, { useState } from 'react'
 
 import { FiArrowRight } from "react-icons/fi";
 

@@ -1,6 +1,6 @@
+import './InfoAboutUs.scss';
 import Button from '../Button/Button';
 import { FiArrowRight } from 'react-icons/fi';
-import './InfoAboutUs.scss';
 
 const InfoAboutUs = ({title, text}) => {
     return (

@@ -1,7 +1,7 @@
+import './HeroSection.scss';
 import React from 'react';
 import { FiArrowRight } from "react-icons/fi";
 import Button from "../Button/Button"
-import './HeroSection.scss';
 
 const HeroSection = () => {
 	return (

@@ -1,4 +1,3 @@
-import "./App.scss";
 import { ItemListContainer } from "./pages/ItemListContainer/ItemListContainer";
 import { NavBar } from "./components/NavBar/NavBar";
 import { HeroSection } from "./components/HeroSection/HeroSection";
@@ -10,10 +9,10 @@ import imgAboutUs from '../src/assets/images/about-us-bg.png';
 import Footer from "./components/Footer/Footer";
 import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer";
 
-function App() {
+function Home() {
 
   return (
-    <div className="App">
+    <>
       <NavBar cart={10}/>
 			<HeroSection />
 			<ItemListContainer />
@@ -29,8 +28,8 @@ function App() {
 			</SectionAboutUs>
 			<ItemDetailContainer/>
 			<Footer/>
-    </div>
+    </>
   );
 }
 
-export default App;
+export default Home;

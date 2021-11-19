@@ -1,21 +1,17 @@
-// Core modules imports are same as usual
+// Core modules for SwiperJS -> Slider
 import { Navigation, Virtual } from 'swiper';
-// Direct React component imports
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-// install Swiper modules
-
-// Styles must use direct files imports
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/navigation/navigation.scss'; // Navigation module
 import 'swiper/modules/virtual/virtual.scss'; // Pagination module
+// Core modules for SwiperJS -> Slider
 
-
+import './ItemDetail.scss';
 import { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import {ItemCount} from '../ItemCount/ItemCount';
 import { FiShoppingCart } from 'react-icons/fi';
 
-import './ItemDetail.scss';
 // import imgSlider from '../../assets/images/slider.jpg'
 
 const ItemDetail = ({item}) => {
