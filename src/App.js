@@ -1,36 +1,32 @@
 import "./App.scss";
-import { ItemListContainer } from "./pages/ItemListContainer/ItemListContainer";
-import { NavBar } from "./components/NavBar/NavBar";
-import { HeroSection } from "./components/HeroSection/HeroSection";
-import { SectionAboutUs } from "./pages/SectionAboutUs/SectionAboutUs";
-import { ImageAboutUs } from "./components/ImageAboutUs/ImageAboutUs";
-import { InfoAboutUs } from "./components/InfoAboutUs/InfoAboutUs";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import imgAboutUs from '../src/assets/images/about-us-bg.png';
-import Footer from "./components/Footer/Footer";
-import CategoryListContainer from "./pages/CategoryListContainer/CategoryListContainer";
+import { ItemListContainer } from "./pages/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer";
+import { NavBar } from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import NotFound from './pages/NotFound/NotFound'
+
 
 function App() {
 
   return (
     <div className="App">
-      <NavBar cart={10}/>
-			<HeroSection />
-			<ItemListContainer />
-			<SectionAboutUs>
-				<ImageAboutUs
-					img={imgAboutUs}
-					alt="Viking jewelry"
-				/>
-				<InfoAboutUs
-					title="Viking jewelry, decor and more"
-					text="Our website offers nearly a thousand different items including replicas of original Viking artifacts to modern day inspirations."
-				/>
-			</SectionAboutUs>
-			<CategoryListContainer/>
-			<ItemDetailContainer />
-			<Footer/>
+			<BrowserRouter>
+				<NavBar cart={10}/>
+					<Routes>
+						<Route index element={<Home />} />
+						<Route path="category" element={<ItemListContainer/>} >
+							<Route path=":idCategory" element={<ItemListContainer />} />
+						</Route>
+						<Route path="product/:idProduct" element={<ItemDetailContainer/>} />
+						<Route path="about-us" element={<About />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				<Footer/>
+			</BrowserRouter>
     </div>
   );
 }

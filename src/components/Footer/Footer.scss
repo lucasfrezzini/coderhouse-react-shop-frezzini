@@ -19,6 +19,10 @@
 			text-decoration: none;
 			margin: 0 15px;
 		}
+
+		a.active {
+			text-decoration: underline;
+		}
 	}
 
 	&__socials a {

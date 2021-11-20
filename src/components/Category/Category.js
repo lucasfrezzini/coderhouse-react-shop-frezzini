@@ -1,13 +1,14 @@
 import './Category.scss'
+import { Link } from 'react-router-dom';
 import React from 'react';
 
-const Category = ({name, image}) => {
+const Category = ({name, image, id}) => {
 	return (
 		<div className="Category" >
-			<a href="item.html" ><img src={image} alt={name}/></a>
+			<Link to={`/category/${id}`} ><img src={image} alt={name}/></Link>
 			<header>
 				<div>
-					<h3><a href="item.html">{name}</a></h3>
+					<h3><Link to={`/category/${id}`}>{name}</Link></h3>
 				</div>
 			</header>
 		</div>

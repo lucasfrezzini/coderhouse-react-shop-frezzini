@@ -15,6 +15,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 // import imgSlider from '../../assets/images/slider.jpg'
 
 const ItemDetail = ({item}) => {
+	console.log('item itemDetail', item)
 	const [images, setImages] = useState([]);
 
 	useEffect(() => {
@@ -53,10 +54,33 @@ const ItemDetail = ({item}) => {
 						<h3>Description</h3>
 						<p>{item.description}</p>
 					</div>
-					<div>
-						<h3>Sizes</h3>
-						<p>{item.sizes}</p>
-					</div>
+					{
+						item.sizes &&
+						<>
+						<div>
+							<h3>Sizes</h3>
+							<p>{item.sizes}</p>
+						</div>
+						</>
+					}
+					{
+						item.material &&
+						<>
+						<div>
+							<h3>Material</h3>
+							<p>{item.material}</p>
+						</div>
+						</>
+					}
+					{
+						item.size &&
+						<>
+						<div>
+							<h3>Size</h3>
+							<p>{item.size}</p>
+						</div>
+						</>
+					}
 					<div>
 						<h3>Quantity</h3>
 						<ItemCount stock={10} initial={1} />

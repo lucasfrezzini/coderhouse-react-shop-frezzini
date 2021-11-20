@@ -36,6 +36,10 @@
         color: white;
         text-decoration: none;
       }
+
+			a.active {
+				text-decoration: underline;
+			}
     }
   }
 }

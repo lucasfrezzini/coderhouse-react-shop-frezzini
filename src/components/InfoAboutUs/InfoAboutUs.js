@@ -1,18 +1,24 @@
 import './InfoAboutUs.scss';
+import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import { FiArrowRight } from 'react-icons/fi';
 
-const InfoAboutUs = ({title, text}) => {
+const InfoAboutUs = ({title, text, button}) => {
     return (
         <div className="InfoAboutUs">
             <h2>{title}</h2>
             <h3>{text}</h3>
-            <Button
-							text="More about us"
-							icon={<FiArrowRight/>}
-							type="button"
-							variant="Button__large"
-						/>
+						{
+							button &&
+							<Link to="/about-us">
+							<Button
+								text="More about us"
+								icon={<FiArrowRight/>}
+								type="button"
+								variant="Button__large"
+							/>
+							</Link>
+						}
         </div>
     );
 }

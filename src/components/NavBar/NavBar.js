@@ -1,4 +1,5 @@
 import './NavBar.scss';
+import { NavLink, Link } from "react-router-dom";
 import { CartWidget } from '../CounterWidget/CounterWidget';
 
 
@@ -6,14 +7,14 @@ const NavBar = ({cart}) => {
 	return (
 		<header className="NavBar">
 			<div className="container">
-				<a href="index.html" className="logo">VALKYUM</a>
+				<Link to="/" className="logo">VALKYUM</Link>
 				<nav>
 					<ul>
-						<li><a href="index.html">Necklaces</a></li>
-						<li><a href="index.html">Rings</a></li>
-						<li><a href="index.html">Bracelets</a></li>
-						<li><a href="index.html">Earrings</a></li>
-						<li><a href="index.html">About</a></li>
+						<li><NavLink to="category/1">Rings</NavLink></li>
+						<li><NavLink to="category/2">Necklaces</NavLink></li>
+						<li><NavLink to="category/3">Earrings</NavLink></li>
+						<li><NavLink to="category/4">Drinking Horns</NavLink></li>
+						<li><NavLink to="about-us">About</NavLink></li>
 					</ul>
 				</nav>
 				<CartWidget
