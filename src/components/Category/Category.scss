@@ -1,4 +1,4 @@
-.Item {
+.Category {
 	font-family: 'Lato', sans-serif;
 	display: flex;
 	flex-direction: column;
@@ -15,8 +15,6 @@
 		header, Button {
 			display: flex;
 		}
-	}
-	a {
 	}
 	img {
 		cursor: url('../../assets/images/eye.svg'), auto;

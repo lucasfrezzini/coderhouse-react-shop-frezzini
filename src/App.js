@@ -8,8 +8,8 @@ import { InfoAboutUs } from "./components/InfoAboutUs/InfoAboutUs";
 
 import imgAboutUs from '../src/assets/images/about-us-bg.png';
 import Footer from "./components/Footer/Footer";
-import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer";
 import CategoryListContainer from "./pages/CategoryListContainer/CategoryListContainer";
+import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
 
@@ -18,7 +18,6 @@ function App() {
       <NavBar cart={10}/>
 			<HeroSection />
 			<ItemListContainer />
-			<CategoryListContainer/>
 			<SectionAboutUs>
 				<ImageAboutUs
 					img={imgAboutUs}
@@ -29,7 +28,8 @@ function App() {
 					text="Our website offers nearly a thousand different items including replicas of original Viking artifacts to modern day inspirations."
 				/>
 			</SectionAboutUs>
-			<ItemDetailContainer/>
+			<CategoryListContainer/>
+			<ItemDetailContainer />
 			<Footer/>
     </div>
   );

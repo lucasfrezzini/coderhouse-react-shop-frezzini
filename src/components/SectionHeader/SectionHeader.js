@@ -2,16 +2,19 @@ import './SectionHeader.scss';
 import Button from './../Button/Button';
 
 
-const SectionHeader = ({title, icon, type, variant}) => {
+const SectionHeader = ({title, button, icon, type, variant}) => {
 	return (
 		<header className="SectionHeader">
 			<h3>{title}</h3>
-			<Button
-				text="See all items"
-				icon={icon}
-				type={type}
-				variant={variant}
-			/>
+			{
+				button &&
+					<Button
+						text="See all items"
+						icon={icon}
+						type={type}
+						variant={variant}
+					/>
+			}
 		</header>
 	)
 }

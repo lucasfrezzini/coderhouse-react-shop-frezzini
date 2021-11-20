@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { FiArrowRight } from 'react-icons/fi';
+import SkeletonList from '../../components/SkeletonList/SkeletonList';
 
 
 const ItemListContainer = () => {
@@ -16,7 +17,7 @@ const ItemListContainer = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				setProducts(data);
-				setLoading(false);
+				setTimeout(() => setLoading(false), 1000)
 			})
 			.catch(e => console.log(e))
 	}, [])
@@ -26,6 +27,7 @@ const ItemListContainer = () => {
 			<div className="container" >
 				<SectionHeader
 					title="Our most premium selection"
+					button
 					icon={<FiArrowRight/>}
 					type="button"
 					variant=""
@@ -33,7 +35,7 @@ const ItemListContainer = () => {
 
 				{
 					loading
-						? <h2>Cargando...</h2>
+						? <SkeletonList />
 						: <ItemList products={products} />
 				}
 			</div>

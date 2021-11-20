@@ -14,11 +14,11 @@ const Item = ({name, category, price, main_image}) => {
 			/>
 			<a href="item.html" ><img src={main_image} alt={name}/></a>
 			<header>
+				<h3>$ {price}</h3>
 				<div>
 					<h4>{category.name}</h4>
 					<h3><a href="item.html">{name}</a></h3>
 				</div>
-				<h3>$ {price}</h3>
 			</header>
 		</div>
 	)
