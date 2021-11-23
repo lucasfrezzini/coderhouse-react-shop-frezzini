@@ -1,9 +1,9 @@
-import { SectionAboutUs } from "../SectionAboutUs/SectionAboutUs";
-import { ImageAboutUs } from "../../components/ImageAboutUs/ImageAboutUs";
-import { InfoAboutUs } from "../../components/InfoAboutUs/InfoAboutUs";
+import { SectionAboutUs } from "pages/SectionAboutUs/SectionAboutUs";
+import { ImageAboutUs } from "components/ImageAboutUs/ImageAboutUs";
+import { InfoAboutUs } from "components/InfoAboutUs/InfoAboutUs";
 
 
-import imgAboutUs from '../../assets/images/about-us-bg.png';
+import imgAboutUs from 'assets/images/about-us-bg.png';
 
 
 function About() {

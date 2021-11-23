@@ -1,6 +1,6 @@
 import './InfoAboutUs.scss';
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
+import Button from 'components/Button/Button';
 import { FiArrowRight } from 'react-icons/fi';
 
 const InfoAboutUs = ({title, text, button}) => {

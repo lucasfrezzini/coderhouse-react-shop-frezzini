@@ -2,7 +2,7 @@ import './Item.scss'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
-import Button from '../Button/Button';
+import Button from 'components/Button/Button';
 
 const Item = ({name, category, price, main_image, id}) => {
 	return (

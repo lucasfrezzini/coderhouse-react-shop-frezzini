@@ -1,9 +1,9 @@
 import './ItemListContainer.scss';
 import { useEffect, useState } from 'react';
-import ItemList from '../../components/ItemList/ItemList';
-import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import ItemList from 'components/ItemList/ItemList';
+import SectionHeader from 'components/SectionHeader/SectionHeader';
 import { FiArrowRight } from 'react-icons/fi';
-import SkeletonList from '../../components/SkeletonList/SkeletonList';
+import SkeletonList from 'components/SkeletonList/SkeletonList';
 import { useParams } from 'react-router';
 
 

@@ -1,6 +1,6 @@
 import './NavBar.scss';
 import { NavLink, Link } from "react-router-dom";
-import { CartWidget } from '../CounterWidget/CounterWidget';
+import { CartWidget } from 'components/CounterWidget/CounterWidget';
 
 
 const NavBar = ({cart}) => {

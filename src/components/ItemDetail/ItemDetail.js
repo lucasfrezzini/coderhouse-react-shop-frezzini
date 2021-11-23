@@ -8,8 +8,8 @@ import 'swiper/modules/virtual/virtual.scss'; // Pagination module
 
 import './ItemDetail.scss';
 import { useState, useEffect } from 'react';
-import Button from '../Button/Button';
-import {ItemCount} from '../ItemCount/ItemCount';
+import Button from 'components/Button/Button';
+import {ItemCount} from 'components/ItemCount/ItemCount';
 import { FiShoppingCart } from 'react-icons/fi';
 
 // import imgSlider from '../../assets/images/slider.jpg'

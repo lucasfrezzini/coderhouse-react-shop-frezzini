@@ -1,4 +1,4 @@
-import { stock } from '../data/apiVikings.js';
+import { stock } from 'data/apiVikings.js';
 
 const getData = (API_URL) => {
 	return new Promise((resolve, rejected) => {

@@ -13,9 +13,9 @@ const Footer = () => {
 				<NavLink to="about-us">About</NavLink>
 			</nav>
 			<nav className="Footer__socials">
-				<a href="https://twitter.com/lucasfrezzini" target="_blank"><FiTwitter/></a>
-				<a href="https://github.com/lucasfrezzini" target="_blank"><FiGithub/></a>
-				<a href="https://www.instagram.com/lucasfrezzini/" target="_blank"><FiInstagram/></a>
+				<a href="https://twitter.com/lucasfrezzini" target="_blank" rel="noreferrer"><FiTwitter/></a>
+				<a href="https://github.com/lucasfrezzini" target="_blank" rel="noreferrer"><FiGithub/></a>
+				<a href="https://www.instagram.com/lucasfrezzini/" target="_blank" rel="noreferrer"><FiInstagram/></a>
 			</nav>
 		</footer>
 	)

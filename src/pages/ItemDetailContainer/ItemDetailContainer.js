@@ -1,8 +1,8 @@
 import './ItemDetailContainer.scss';
 
 import React, { useState, useEffect } from 'react'
-import ItemDetail from '../../components/ItemDetail/ItemDetail'
-import SkeletonItem from '../../components/SkeletonItem/SkeletonItem';
+import ItemDetail from 'components/ItemDetail/ItemDetail'
+import SkeletonItem from 'components/SkeletonItem/SkeletonItem';
 import { useParams } from 'react-router';
 
 const ItemDetailContainer = () => {
