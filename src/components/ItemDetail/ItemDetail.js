@@ -8,15 +8,32 @@ import 'swiper/modules/virtual/virtual.scss'; // Pagination module
 
 import './ItemDetail.scss';
 import { useState, useEffect } from 'react';
-import Button from 'components/Button/Button';
 import {ItemCount} from 'components/ItemCount/ItemCount';
-import { FiShoppingCart } from 'react-icons/fi';
+import { FiCheck, FiRefreshCw, FiShoppingBag } from 'react-icons/fi';
 
 // import imgSlider from '../../assets/images/slider.jpg'
 
 const ItemDetail = ({item}) => {
-	console.log('item itemDetail', item)
-	const [images, setImages] = useState([]);
+	const [ loadingItemCount, setLoadingItemCount ] = useState(false);
+	const [ addCart, setAddCart ] = useState(false);
+	const [ quantity, setQuantity ] = useState(1);
+	const [ images, setImages ] = useState([]);
+	const [changeButton, setChangeButton ] = useState(false);
+
+	const onAdd = (quantity) => {
+		setLoadingItemCount(true)
+		setTimeout(() => {
+			setAddCart(true);
+			setLoadingItemCount(false);
+			setTimeout(()=>{
+				setChangeButton(true);
+			}, 1500)
+		}, 1000);
+
+		// Luego irá logica para enviar al Context
+		// el {} con la info y el quantity debajo
+		setQuantity(quantity)
+	}
 
 	useEffect(() => {
 		try {
@@ -82,14 +99,16 @@ const ItemDetail = ({item}) => {
 						</>
 					}
 					<div>
-						<h3>Quantity</h3>
-						<ItemCount stock={10} initial={1} />
+						{
+						loadingItemCount
+							? <button type="button" className="Button Button--addingToCart">Adding to cart <FiRefreshCw/></button>
+							: !addCart
+								?	<ItemCount stock={10} initial={quantity} onAdd={onAdd}/>
+								: !changeButton
+									? <button type="button" className="Button Button--loadedToCart">Loaded to cart <FiCheck/></button>
+									: <button type="button" className="Button">Go to cart <FiShoppingBag/></button>
+						}
 					</div>
-					<Button
-						text="Add to cart"
-						icon={<FiShoppingCart/>}
-						type="button"
-					/>
 				</div>
 			</div>
 		</section>

@@ -1,41 +1,52 @@
 import './ItemCount.scss';
 import React, { useState } from 'react'
 
-import { FiArrowRight } from "react-icons/fi";
+import Button from 'components/Button/Button';
+import { FiArrowRight, FiShoppingCart } from "react-icons/fi";
 
 
-const ItemCount = ({stock, initial}) => {
-	const initialCant = initial || 1;
-	const [cant, setCant] = useState(initialCant);
+const ItemCount = ({stock, initial, onAdd}) => {
+	console.log(onAdd);
+	const initialquantity = initial;
+	const [quantity, setQuantity] = useState(initialquantity);
 
-	const handleCantDown = () => {
-		if (cant > 0 ) { setCant(cant - 1) }
+	const handleQuantityDown = () => {
+		if (quantity > 0 ) { setQuantity(quantity - 1) }
 	}
 
-	const handleCantUp = () => {
-		if (cant < stock) { setCant(cant + 1) }
+	const handleQuantityUp = () => {
+		if (quantity < stock) { setQuantity(quantity + 1) }
 	}
 
 	return (
 		<div className="ItemCount">
+			<h3>Quantity</h3>
+			<div className="ItemCount__buttons">
+				<button
+					type="button"
+					disabled={quantity === 0}
+					onClick={handleQuantityDown}
+					className="btn_quantity btn_quantity--quit"
+				>
+					<FiArrowRight />
+				</button>
+				<span>{quantity}</span>
+				<button
+					type="button"
+					onClick={handleQuantityUp}
+					className="btn_quantity btn_quantity--add"
+					disabled={quantity === stock}
+				>
+					<FiArrowRight />
+				</button>
+			</div>
 			<button
+				onClick={() => onAdd()}
 				type="button"
-				disabled={cant === 0}
-				onClick={handleCantDown}
-				className="btn_quantity btn_quantity--quit"
+				className="Button"
 			>
-				<FiArrowRight />
+					Add to cart <FiShoppingCart/>
 			</button>
-			<span>{cant}</span>
-			<button
-				type="button"
-				onClick={handleCantUp}
-				className="btn_quantity btn_quantity--add"
-				disabled={cant === stock}
-			>
-				<FiArrowRight />
-			</button>
-
 		</div>
 	)
 }

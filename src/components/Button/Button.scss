@@ -41,4 +41,46 @@
 			stroke: white;
 		}
 	}
+
+	&--addingToCart {
+		background-color: orange;
+
+		svg {
+			animation-name: spin;
+			animation-duration: 500ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+	}
+
+	&--loadedToCart{
+		background-color: rgb(82, 150, 82);
+		color: white;
+		opacity: .5;
+		animation-name: show;
+		animation-duration: 1500ms;
+		animation-timing-function: linear;
+
+		svg {
+			stroke: white;
+		}
+	}
+}
+
+@keyframes spin {
+	from {
+			transform:rotate(0deg);
+	}
+	to {
+			transform:rotate(360deg);
+	}
+}
+
+@keyframes show {
+	from {
+		opacity: .5;
+	}
+	to {
+		opacity: 1;
+	}
 }
