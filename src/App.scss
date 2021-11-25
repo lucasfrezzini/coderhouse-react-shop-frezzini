@@ -38,3 +38,116 @@ h3 {
 	width: 90%;
 	margin: 0 auto;
 }
+
+.btn {
+	font-family: 'Lato', sans-serif;
+	background-color: white;
+	color: black;
+	text-transform: uppercase;
+	font-size: 14px;
+	border-radius: 45px;
+	padding: 15px 20px;
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+
+	a {
+		color: initial;
+		display: flex;
+    align-items: center;
+    text-decoration: none;
+	}
+
+	&:hover svg {
+		transform: translateX(4px);
+	}
+
+	svg {
+		transition: all .2s;
+		stroke: black;
+		margin-left: 10px;
+		font-size: 24px;
+	}
+
+	&--large {
+		font-size: 18px;
+
+		svg {
+			font-size: 26px;
+		}
+	}
+
+	&--outline {
+		background-color: transparent;
+		color: white;
+		border: 2px solid white;
+
+		svg {
+			stroke: white;
+		}
+	}
+
+	&--danger{
+		transition: all .5s;
+	}
+
+	&--danger:hover{
+		border-color: #FF3E3E;
+		background-color: #FF3E3E;
+	}
+
+	&--addCart {
+		background: none;
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+		padding: 0;
+
+		svg {
+			stroke: white;
+		}
+	}
+
+	&--addingToCart {
+		background-color: orange;
+
+		svg {
+			animation-name: spin;
+			animation-duration: 500ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+	}
+
+	&--loadedToCart{
+		background-color: rgb(82, 150, 82);
+		color: white;
+		opacity: .5;
+		animation-name: show;
+		animation-duration: 1500ms;
+		animation-timing-function: linear;
+
+		svg {
+			stroke: white;
+		}
+	}
+}
+
+@keyframes spin {
+	from {
+			transform:rotate(0deg);
+	}
+	to {
+			transform:rotate(360deg);
+	}
+}
+
+@keyframes show {
+	from {
+		opacity: .5;
+	}
+	to {
+		opacity: 1;
+	}
+}

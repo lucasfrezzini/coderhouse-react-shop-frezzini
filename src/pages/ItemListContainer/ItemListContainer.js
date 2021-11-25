@@ -91,7 +91,6 @@ const ItemListContainer = ({isHome}) => {
 					button
 					icon={<FiArrowRight/>}
 					type="button"
-					variant=""
 				/>
 
 				{

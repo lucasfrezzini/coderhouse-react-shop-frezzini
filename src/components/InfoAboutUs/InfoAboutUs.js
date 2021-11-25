@@ -1,6 +1,5 @@
 import './InfoAboutUs.scss';
 import { Link } from 'react-router-dom';
-import Button from 'components/Button/Button';
 import { FiArrowRight } from 'react-icons/fi';
 
 const InfoAboutUs = ({title, text, button}) => {
@@ -11,12 +10,12 @@ const InfoAboutUs = ({title, text, button}) => {
 						{
 							button &&
 							<Link to="/about-us">
-							<Button
-								text="More about us"
-								icon={<FiArrowRight/>}
+							<button
 								type="button"
-								variant="Button__large"
-							/>
+								className="btn btn--large"
+							>
+								More about us <FiArrowRight/>
+							</button>
 							</Link>
 						}
         </div>

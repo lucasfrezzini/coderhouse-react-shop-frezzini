@@ -2,17 +2,16 @@ import './Item.scss'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
-import Button from 'components/Button/Button';
 
 const Item = ({name, category, price, main_image, id}) => {
 	return (
 		<div className="Item" >
-			<Button
-				text="Add to cart"
-				icon={<FiShoppingCart/>}
+			<button
 				type="button"
-				variant="Button__addCart"
-			/>
+				className="btn btn--addCart"
+			>
+				Add to cart <FiShoppingCart/>
+			</button>
 			<Link to={`/product/${id}`}><img src={main_image} alt={name} loading="lazy" /></Link>
 			<header>
 				<h3>$ {price}</h3>

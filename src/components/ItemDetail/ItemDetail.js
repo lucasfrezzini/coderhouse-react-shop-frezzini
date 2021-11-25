@@ -102,12 +102,12 @@ const ItemDetail = ({item}) => {
 					<div>
 						{
 						loadingItemCount
-							? <button type="button" className="Button Button--addingToCart">Adding to cart <FiRefreshCw/></button>
+							? <button type="btn" className="btn btn--addingToCart">Adding to cart <FiRefreshCw/></button>
 							: !addCart
 								?	<ItemCount stock={10} initial={quantity} onAdd={onAdd}/>
 								: !changeButton
-									? <button type="button" className="Button Button--loadedToCart">Loaded to cart <FiCheck/></button>
-									: <button type="button" className="Button"><Link to="/cart">Go to cart <FiShoppingBag/></Link></button>
+									? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
+									: <button type="btn" className="btn"><Link to="/cart">Go to cart <FiShoppingBag/></Link></button>
 						}
 					</div>
 				</div>

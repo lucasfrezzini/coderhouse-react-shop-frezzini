@@ -1,21 +1,20 @@
 import './SectionHeader.scss';
 import { Link } from 'react-router-dom';
-import Button from 'components/Button/Button';
 
 
-const SectionHeader = ({isHome, title, button, icon, type, variant}) => {
+const SectionHeader = ({isHome, title, button, icon}) => {
 	return (
 		<header className={`SectionHeader ${isHome && "isHome"}`}>
 			<h3>{title}</h3>
 			{
 				button && isHome &&
 				<Link to="/category">
-				<Button
-				text="See all items"
-				icon={icon}
-				type={type}
-				variant={variant}
-				/>
+				<button
+					type="button"
+					className="btn"
+				>
+					See all items {icon}
+				</button>
 				</Link>
 			}
 		</header>

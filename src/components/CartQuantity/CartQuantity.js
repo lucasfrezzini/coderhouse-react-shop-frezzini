@@ -1,16 +1,15 @@
-import './ItemCount.scss';
+import './CartQuantity.scss';
 import React, { useState } from 'react'
 
-import { FiArrowRight, FiShoppingCart } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 
 
-const ItemCount = ({stock, initial, onAdd}) => {
-	console.log(onAdd);
-	const initialquantity = initial;
+const CartQuantity = ({stock, initial, onAdd}) => {
+	const initialquantity = initial || 1;
 	const [quantity, setQuantity] = useState(initialquantity);
 
 	const handleQuantityDown = () => {
-		if (quantity > 0 ) { setQuantity(quantity - 1) }
+		if (quantity > 1 ) { setQuantity(quantity - 1) }
 	}
 
 	const handleQuantityUp = () => {
@@ -18,12 +17,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
 	}
 
 	return (
-		<div className="ItemCount">
-			<h3>Quantity</h3>
-			<div className="ItemCount__buttons">
+		<div className="CartQuantity">
+			<div className="CartQuantity__buttons">
 				<button
 					type="button"
-					disabled={quantity === 0}
+					disabled={quantity === 1}
 					onClick={handleQuantityDown}
 					className="btn_quantity btn_quantity--quit"
 				>
@@ -39,15 +37,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
 					<FiArrowRight />
 				</button>
 			</div>
-			<button
-				onClick={() => onAdd()}
-				type="button"
-				className="btn"
-			>
-					Add to cart <FiShoppingCart/>
-			</button>
 		</div>
 	)
 }
 
-export default ItemCount
+export default CartQuantity

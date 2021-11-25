@@ -1,9 +1,10 @@
-.ItemCount {
+.CartQuantity {
 
 	&__buttons {
 		margin: 20px 0;
 		display: flex;
 		align-items: center;
+		justify-content: center;
 
 		.btn_quantity {
 			border-radius: 50%;
