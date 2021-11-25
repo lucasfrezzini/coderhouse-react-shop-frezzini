@@ -10,6 +10,13 @@
 	align-items: center;
 	font-weight: bold;
 
+	a {
+		color: initial;
+		display: flex;
+    align-items: center;
+    text-decoration: none;
+	}
+
 	&:hover svg {
 		transform: translateX(4px);
 	}

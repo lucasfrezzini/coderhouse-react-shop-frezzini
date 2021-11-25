@@ -8,7 +8,8 @@ import 'swiper/modules/virtual/virtual.scss'; // Pagination module
 
 import './ItemDetail.scss';
 import { useState, useEffect } from 'react';
-import {ItemCount} from 'components/ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
+import ItemCount from 'components/ItemCount/ItemCount';
 import { FiCheck, FiRefreshCw, FiShoppingBag } from 'react-icons/fi';
 
 // import imgSlider from '../../assets/images/slider.jpg'
@@ -106,7 +107,7 @@ const ItemDetail = ({item}) => {
 								?	<ItemCount stock={10} initial={quantity} onAdd={onAdd}/>
 								: !changeButton
 									? <button type="button" className="Button Button--loadedToCart">Loaded to cart <FiCheck/></button>
-									: <button type="button" className="Button">Go to cart <FiShoppingBag/></button>
+									: <button type="button" className="Button"><Link to="/cart">Go to cart <FiShoppingBag/></Link></button>
 						}
 					</div>
 				</div>

@@ -1,6 +1,6 @@
 import './NavBar.scss';
 import { NavLink, Link } from "react-router-dom";
-import { CartWidget } from 'components/CounterWidget/CounterWidget';
+import CartWidget from 'components/CartWidget/CartWidget';
 
 
 const NavBar = ({cart}) => {
@@ -25,4 +25,4 @@ const NavBar = ({cart}) => {
 	)
 }
 
-export { NavBar }
+export default NavBar

@@ -13,7 +13,7 @@ const Item = ({name, category, price, main_image, id}) => {
 				type="button"
 				variant="Button__addCart"
 			/>
-			<Link to={`/product/${id}`}><img src={main_image} alt={name}/></Link>
+			<Link to={`/product/${id}`}><img src={main_image} alt={name} loading="lazy" /></Link>
 			<header>
 				<h3>$ {price}</h3>
 				<div>

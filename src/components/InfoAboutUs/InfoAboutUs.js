@@ -23,4 +23,4 @@ const InfoAboutUs = ({title, text, button}) => {
     );
 }
 
-export { InfoAboutUs }
+export default InfoAboutUs

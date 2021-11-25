@@ -1,4 +1,4 @@
-import './CounterWidget.scss';
+import './CartWidget.scss';
 import { FiShoppingCart } from "react-icons/fi";
 
 const CartWidget = ({ counterItems }) => {
@@ -10,4 +10,4 @@ const CartWidget = ({ counterItems }) => {
     );
 }
 
-export { CartWidget }
+export default CartWidget

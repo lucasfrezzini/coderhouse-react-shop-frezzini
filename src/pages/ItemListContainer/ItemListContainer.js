@@ -1,10 +1,10 @@
 import './ItemListContainer.scss';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import ItemList from 'components/ItemList/ItemList';
 import SectionHeader from 'components/SectionHeader/SectionHeader';
-import { FiArrowRight } from 'react-icons/fi';
 import SkeletonList from 'components/SkeletonList/SkeletonList';
-import { useParams } from 'react-router';
+import { FiArrowRight } from 'react-icons/fi';
 
 
 const ItemListContainer = ({isHome}) => {
@@ -104,4 +104,4 @@ const ItemListContainer = ({isHome}) => {
 	);
 }
 
-export { ItemListContainer }
+export default ItemListContainer

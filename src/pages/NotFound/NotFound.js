@@ -1,6 +1,6 @@
 import './NotFound.scss';
-import CategoryListContainer from "pages/CategoryListContainer/CategoryListContainer";
 import { Link } from "react-router-dom";
+import CategoryListContainer from "pages/CategoryListContainer/CategoryListContainer";
 
 function NotFound() {
   return (

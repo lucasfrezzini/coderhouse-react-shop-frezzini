@@ -8,4 +8,4 @@ const ImageAboutUs = ({img, alt}) => {
     );
 }
 
-export { ImageAboutUs }
+export default ImageAboutUs

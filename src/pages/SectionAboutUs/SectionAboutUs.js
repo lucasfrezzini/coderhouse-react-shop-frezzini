@@ -9,4 +9,4 @@ const SectionAboutUs = ( {children }) => {
     );
 }
 
-export { SectionAboutUs }
+export default SectionAboutUs
