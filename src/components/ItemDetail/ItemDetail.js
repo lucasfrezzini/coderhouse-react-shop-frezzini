@@ -17,7 +17,18 @@ import { CartContext } from 'context/CartContext';
 
 const ItemDetail = ({item}) => {
 
-	const {id, images, name, price, description, main_image, material, sizes, size} = item;
+	const {
+		id,
+		images,
+		name,
+		price,
+		description,
+		main_image,
+		material,
+		sizes,
+		size
+	} = item;
+
 	const {
 		addToCart
 	} = useContext(CartContext);
@@ -121,7 +132,7 @@ const ItemDetail = ({item}) => {
 								?	<ItemCount stock={10} initial={quantity} onAdd={onAdd}/>
 								: !changeButton
 									? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
-									: <button type="btn" className="btn"><Link to="/cart">Go to cart <FiShoppingBag/></Link></button>
+									: <Link to="/cart"><button type="btn" className="btn">Go to cart <FiShoppingBag/></button></Link>
 						}
 					</div>
 				</div>

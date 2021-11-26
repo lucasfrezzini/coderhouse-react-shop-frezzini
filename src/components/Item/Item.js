@@ -6,7 +6,7 @@ import { CartContext } from 'context/CartContext';
 
 const Item = ({name, category, price, main_image, id, stock}) => {
 	const quantity = 1;
-	let showAddCartButton = true;
+	const [ showAddCartButton, setShowAddCartButton ] = useState(true);
 
 	const {
 		addToCart,
@@ -22,26 +22,28 @@ const Item = ({name, category, price, main_image, id, stock}) => {
 			price,
 			name,
 		});
-		showAddCartButton = !showAddCartButton;
+		setShowAddCartButton(false)
 	}
 
 	useEffect(() => {
-		showAddCartButton = isInCart(id)
+		setShowAddCartButton(isInCart(id))
 		console.log(showAddCartButton);
 	}, [showAddCartButton])
 
 	return (
 		<div className="Item" >
 			{
-				showAddCartButton
-					&&
-						(<button
-							onClick={handleAddToCart}
-							type="button"
-							className="btn btn--addCart"
-						>
-							Add to cart <FiShoppingCart/>
-						</button>)
+				!showAddCartButton &&
+					<>
+					<button
+						p={`${showAddCartButton}`}
+						onClick={handleAddToCart}
+						type="button"
+						className="btn btn--addCart"
+					>
+						Add to cart <FiShoppingCart/>
+					</button>
+					</>
 			}
 			<Link to={`/product/${id}`}><img src={main_image} alt={name} loading="lazy" /></Link>
 			<header>
