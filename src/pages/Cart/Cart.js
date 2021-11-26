@@ -1,121 +1,99 @@
 import './Cart.scss';
 import SectionHeader from 'components/SectionHeader/SectionHeader'
-import React from 'react'
-import { FiTrash2, FiSend } from 'react-icons/fi'
+import React, { useContext } from 'react'
+import { FiTrash2, FiSend, FiArrowRight } from 'react-icons/fi'
 
-import img from 'assets/images/probando/1.png'
-import img2 from 'assets/images/probando/2.png'
 import CartQuantity from 'components/CartQuantity/CartQuantity';
+import { CartContext } from 'context/CartContext';
+import CategoryListContainer from 'pages/CategoryListContainer/CategoryListContainer';
 
 const Cart = () => {
+	const {
+		cart,
+		removeFromCart,
+		calculateTotalPrice,
+		calculateSubTotalPrice,
+		emptyCart,
+		calculateTotalItem,
+	} = useContext(CartContext);
+
 	return (
 		<section className="Cart">
-			<div className="container">
-				<SectionHeader title="My Cart" />
+			{
+			cart.length
+				?	<div className="container">
+						<SectionHeader title="My Cart" />
 
-				<section>
-					<table className="Cart__products-list">
-						<tr>
-							<th></th>
-							<th>Unit price</th>
-							<th>Product information</th>
-							<th>Quantity</th>
-							<th>SubTotal</th>
-						</tr>
-						<tr class="Cart__product">
-							<td className="trash"><FiTrash2/></td>
-							<td className="price">$29.99</td>
-							<td className="info">
-								<img src={img} alt="" />
-								<div>
-									<h3>Lingsberg Dragon Drinking Horn</h3>
-									<h4>Product code: 333</h4>
-								</div>
-							</td>
-							<td className="quantity">
-								<CartQuantity
-									stock={10}
-									onAdd={''}
-								/>
-							</td>
-							<td className="subtotal">$222.00</td>
-						</tr>
-						<tr class="Cart__product">
-							<td className="trash"><FiTrash2/></td>
-							<td className="price">$29.99</td>
-							<td className="info">
-								<img src={img2} alt="" />
-								<div>
-									<h3>Lingsberg Dragon Drinking Horn</h3>
-									<h4>Product code: 333</h4>
-								</div>
-							</td>
-							<td className="quantity">
-								<CartQuantity
-									stock={10}
-									onAdd={''}
-								/>
-							</td>
-							<td className="subtotal">$222.00</td>
-						</tr>
-						<tr class="Cart__product">
-							<td className="trash"><FiTrash2/></td>
-							<td className="price">$29.99</td>
-							<td className="info">
-								<img src={img} alt="" />
-								<div>
-									<h3>Lingsberg Dragon Drinking Horn</h3>
-									<h4>Product code: 333</h4>
-								</div>
-							</td>
-							<td className="quantity">
-								<CartQuantity
-									stock={10}
-									onAdd={''}
-								/>
-							</td>
-							<td className="subtotal">$222.00</td>
-						</tr>
-						<tr class="Cart__product">
-							<td className="trash"><FiTrash2/></td>
-							<td className="price">$29.99</td>
-							<td className="info">
-								<img src={img2} alt="" />
-								<div>
-									<h3>Lingsberg Dragon Drinking Horn</h3>
-									<h4>Product code: 333</h4>
-								</div>
-							</td>
-							<td className="quantity">
-								<CartQuantity
-									stock={10}
-									onAdd={''}
-								/>
-							</td>
-							<td className="subtotal">$222.00</td>
-						</tr>
-					</table>
-					<button
-						type="button"
-						className="btn btn--outline btn--danger"
-					>
-						Empty Cart <FiTrash2/>
-					</button>
-				</section>
+						<section>
+							<table className="Cart__products-list">
+								<tr>
+									<th></th>
+									<th>Unit price</th>
+									<th>Product information</th>
+									<th>Quantity</th>
+									<th>SubTotal</th>
+								</tr>
+								{
+									cart.map( (item, idx) => (
+									<tr className="Cart__product" key={idx}>
+										<td className="trash" onClick={() => removeFromCart(item.id)}><FiTrash2/></td>
+										<td className="price">$ {item.price}</td>
+										<td className="info">
+											<div className="info__grid">
+											<img src={item.main_image} alt="" />
+											<div>
+												<h3>{item.name}</h3>
+												<h4>Product code: {item.id}</h4>
+											</div>
+											</div>
+										</td>
+										<td className="quantity">
+											<CartQuantity
+												id={item.id}
+												stock={item.stock}
+												initial={item.quantity}
+											/>
+										</td>
+										<td className="subtotal">$ {calculateSubTotalPrice(item.price, item.quantity)}</td>
+									</tr>
+									))
+								}
+							</table>
+							<button
+								onClick={() => emptyCart()}
+								type="button"
+								className="btn btn--outline btn--danger"
+							>
+								Empty Cart <FiTrash2/>
+							</button>
+						</section>
 
-				<section className="Cart__resume">
-					<h3>Resume Cart Information</h3>
-					<h4>Order total: <span>$22653653</span></h4>
-					<h4>Total Products: <span>4</span></h4>
-					<button
-						type="button"
-						className="btn"
-					>
-						CheckOut <FiSend/>
-					</button>
-				</section>
+						<section className="Cart__resume">
+							<h3>Resume Cart Information</h3>
+							<h4>Order total: <span>$ {calculateTotalPrice().toFixed(2)}</span></h4>
+							<h4>Total Products: <span>{calculateTotalItem()}</span></h4>
+							<button
+								type="button"
+								className="btn"
+							>
+								CheckOut <FiSend/>
+							</button>
+						</section>
 
-			</div>
+					</div>
+				: <>
+					<div className="container Cart__empty">
+						<SectionHeader title="Nothing in your shopping bag yet..." />
+						<button
+							type="button"
+							className="btn btn--large"
+						>
+							Go to premium items <FiArrowRight/>
+						</button>
+					</div>
+					<CategoryListContainer />
+					</>
+			}
 		</section>
 	)
 }

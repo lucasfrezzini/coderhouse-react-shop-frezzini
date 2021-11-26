@@ -1,5 +1,6 @@
 import "./App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import CartProvider from "context/CartContext";
 
 import ItemListContainer from "./pages/ItemListContainer/ItemListContainer";
@@ -13,6 +14,10 @@ import Cart from "pages/Cart/Cart";
 
 function App() {
 
+	useEffect(() => {
+		window.scrollTo(0,0);
+	}, []);
+
   return (
     <div className="App">
 			<CartProvider>
@@ -21,7 +26,7 @@ function App() {
 						<Routes>
 							<Route index element={<Home />} />
 							<Route path="category" element={<ItemListContainer/>} >
-								<Route path=":idCategory" element={<ItemListContainer />} />
+								<Route path=":slugCategory" element={<ItemListContainer />} />
 							</Route>
 							<Route path="product/:idProduct" element={<ItemDetailContainer/>} />
 							<Route path="cart" element={<Cart/>} />

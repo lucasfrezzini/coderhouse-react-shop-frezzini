@@ -5,7 +5,6 @@ import { FiArrowRight, FiShoppingCart } from "react-icons/fi";
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
-	console.log(onAdd);
 	const initialquantity = initial;
 	const [quantity, setQuantity] = useState(initialquantity);
 
@@ -40,7 +39,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 				</button>
 			</div>
 			<button
-				onClick={() => onAdd()}
+				onClick={() => onAdd(quantity)}
 				type="button"
 				className="btn"
 			>

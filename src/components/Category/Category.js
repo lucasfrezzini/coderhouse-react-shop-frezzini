@@ -2,13 +2,13 @@ import './Category.scss'
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-const Category = ({name, image, id}) => {
+const Category = ({name, image, slug}) => {
 	return (
 		<div className="Category" >
-			<Link to={`/category/${id}`} ><img src={image} alt={name}/></Link>
+			<Link to={`/category/${slug}`} ><img src={image} alt={name}/></Link>
 			<header>
 				<div>
-					<h3><Link to={`/category/${id}`}>{name}</Link></h3>
+					<h3><Link to={`/category/${slug}`}>{name}</Link></h3>
 				</div>
 			</header>
 		</div>

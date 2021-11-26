@@ -55,24 +55,28 @@
 			}
 
 			&.info {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
+				text-align: left;
 
-				img {
-					width: 100px;
-					height: 100px;
-				}
+				.info__grid {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
 
-				div {
-					margin-left: 20px;
-					text-align: left;
-					text-transform: uppercase;
+					img {
+						width: 70px;
+						height: 70px;
+					}
 
-					h3 {
-						margin-bottom: 10px;
-						font-size: 18px;
-						line-height: 24px;
+					div {
+						margin-left: 20px;
+						text-align: left;
+						text-transform: uppercase;
+
+						h3 {
+							margin-bottom: 10px;
+							font-size: 18px;
+							line-height: 24px;
+						}
 					}
 				}
 			}
@@ -96,6 +100,15 @@
 
 		.btn {
 			display: inline-flex;
+		}
+	}
+
+	.Cart__empty {
+		text-align: center;
+
+		button {
+			display: inline-flex;
+			margin-bottom: 60px;
 		}
 	}
 }

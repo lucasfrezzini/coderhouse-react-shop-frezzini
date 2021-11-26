@@ -1,25 +1,30 @@
 import './NavBar.scss';
+import { useContext } from 'react';
+import { CartContext } from 'context/CartContext';
 import { NavLink, Link } from "react-router-dom";
 import CartWidget from 'components/CartWidget/CartWidget';
 
 
-const NavBar = ({cart}) => {
+const NavBar = () => {
+	const {calculateTotalItem} = useContext(CartContext)
+
 	return (
 		<header className="NavBar">
 			<div className="container">
 				<Link to="/" className="logo">VALKYUM</Link>
 				<nav>
 					<ul>
-						<li><NavLink to="category/1">Rings</NavLink></li>
-						<li><NavLink to="category/2">Necklaces</NavLink></li>
-						<li><NavLink to="category/3">Earrings</NavLink></li>
-						<li><NavLink to="category/4">Drinking Horns</NavLink></li>
+						<li><NavLink to="/">Home</NavLink></li>
+						<li><NavLink to="category/rings">Rings</NavLink></li>
+						<li><NavLink to="category/necklaces">Necklaces</NavLink></li>
+						<li><NavLink to="category/earrings">Earrings</NavLink></li>
+						<li><NavLink to="category/drinking-horns">Drinking Horns</NavLink></li>
 						<li><NavLink to="about-us">About</NavLink></li>
 					</ul>
 				</nav>
 				<CartWidget
-					counterItems={cart}
-			/>
+					counterItems={calculateTotalItem()}
+				/>
 			</div>
 		</header>
 	)

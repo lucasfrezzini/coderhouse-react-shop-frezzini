@@ -7,19 +7,26 @@ import 'swiper/modules/virtual/virtual.scss'; // Pagination module
 // Core modules for SwiperJS -> Slider
 
 import './ItemDetail.scss';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from 'components/ItemCount/ItemCount';
 import { FiCheck, FiRefreshCw, FiShoppingBag } from 'react-icons/fi';
+import { CartContext } from 'context/CartContext';
 
 // import imgSlider from '../../assets/images/slider.jpg'
 
 const ItemDetail = ({item}) => {
+
+	const {id, images, name, price, description, main_image, material, sizes, size} = item;
+	const {
+		addToCart
+	} = useContext(CartContext);
+
 	const [ loadingItemCount, setLoadingItemCount ] = useState(false);
 	const [ addCart, setAddCart ] = useState(false);
 	const [ quantity, setQuantity ] = useState(1);
-	const [ images, setImages ] = useState([]);
-	const [changeButton, setChangeButton ] = useState(false);
+	const [ imagesSlider, setImagesSlider ] = useState([]);
+	const [ changeButton, setChangeButton ] = useState(false);
 
 	const onAdd = (quantity) => {
 		setLoadingItemCount(true)
@@ -33,16 +40,23 @@ const ItemDetail = ({item}) => {
 
 		// Luego irá logica para enviar al Context
 		// el {} con la info y el quantity debajo
-		setQuantity(quantity)
+		setQuantity(quantity);
+		addToCart({
+			quantity,
+			id,
+			main_image,
+			price,
+			name,
+		});
 	}
 
 	useEffect(() => {
 		try {
-			setImages(item.images)
+			setImagesSlider(images)
 		} catch (error){
 			console.log(error)
 		}
-	}, [item.images])
+	}, [images])
 
 	return (
 		<section className="ItemDetail" >
@@ -55,47 +69,47 @@ const ItemDetail = ({item}) => {
 						slidesPerView={1}
 						virtual
 					>
-						{images.map((img, index) => (
+						{imagesSlider.map((img, index) => (
 							<SwiperSlide
 								key={index}
 								virtualIndex={index}
 							>
-								{<img src={img} alt={item.name }/>}
+								{<img src={img} alt={name}/>}
 							</SwiperSlide>
 						))}
 					</Swiper>
 				</div>
 				<div className="ItemDetail__info">
-					<h1>{item.name}</h1>
-					<h2>$ {item.price}</h2>
+					<h1>{name}</h1>
+					<h2>$ {price}</h2>
 					<div>
 						<h3>Description</h3>
-						<p>{item.description}</p>
+						<p>{description}</p>
 					</div>
 					{
-						item.sizes &&
+						sizes &&
 						<>
 						<div>
 							<h3>Sizes</h3>
-							<p>{item.sizes}</p>
+							<p>{sizes}</p>
 						</div>
 						</>
 					}
 					{
-						item.material &&
+						material &&
 						<>
 						<div>
 							<h3>Material</h3>
-							<p>{item.material}</p>
+							<p>{material}</p>
 						</div>
 						</>
 					}
 					{
-						item.size &&
+						size &&
 						<>
 						<div>
 							<h3>Size</h3>
-							<p>{item.size}</p>
+							<p>{size}</p>
 						</div>
 						</>
 					}

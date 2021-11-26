@@ -1,30 +1,77 @@
-const { createContext } = require("react");
+const { createContext, useState } = require("react");
 
-export const CartContext = createContext([])
+export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+	const [cart, setCart] = useState([]);
 
-	const addToCart = 0;
-	const removeFromCart= 0;
-	const isInCart= 0;
-	const incrementQuantity= 0;
-	const decrementQuantiy= 0;
-	const emptyCart= 0;
-	const calculateTotalPrice= 0;
-	const calculateParcialPrice= 0;
+	const addToCart = item => {
+		if (isInCart(item.id)) {
+			const idx = cart.findIndex(i => i.id === item.id);
+			let newCart = [...cart];
+			newCart[idx].quantity =  newCart[idx].quantity + 1;
+			setCart(newCart);
+		} else {
+			setCart([
+				...cart,
+				item
+			])
+		}
+	}
+
+	const removeFromCart = (id) => {
+		setCart(cart.filter(prod => prod.id !== id ))
+	}
+
+	const isInCart = (id) => {
+		return cart.some( item => item.id === id )
+	}
+
+	const incrementQuantity = (id) => {
+		const idx = cart.findIndex( item => item.id === id);
+		let newCart = [...cart];
+		newCart[idx].quantity =  newCart[idx].quantity + 1;
+		setCart(newCart);
+	}
+	const decrementQuantity = (id) => {
+		const idx = cart.findIndex( item => item.id === id);
+		let newCart = [...cart];
+		newCart[idx].quantity =  newCart[idx].quantity - 1;
+		setCart(newCart);
+	}
+
+	const emptyCart = () => {
+		setCart([])
+	}
+
+
+	const calculateTotalPrice = () => {
+		return cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+	}
+
+	const calculateSubTotalPrice = (price, quantity) => {
+		return (price * quantity).toFixed(2)
+	}
+
+	const calculateTotalItem = () => {
+		return cart.reduce((acc, item) => acc + item.quantity, 0)
+	}
+
 
 
 	return (
 		<CartContext.Provider
-			values={{
+			value={{
+				cart,
 				addToCart,
 				removeFromCart,
 				isInCart,
 				incrementQuantity,
-				decrementQuantiy,
+				decrementQuantity,
 				emptyCart,
-				calculateParcialPrice,
-				calculateTotalPrice
+				calculateTotalPrice,
+				calculateSubTotalPrice,
+				calculateTotalItem
 			}}
 		>
 			{ children }

@@ -29,7 +29,11 @@
       font-size: 18px;
       line-height: 20px;
 
-      &:nth-child(5) {
+			&:nth-child(1) {
+        margin-right: 50px;
+      }
+
+      &:nth-child(6) {
         margin-left: 50px;
       }
 

@@ -6,10 +6,11 @@ const Footer = () => {
 		<footer className="Footer">
 			<Link to="/" className="logo">VALKYUM</Link>
 			<nav className="Footer__sections">
-				<NavLink to="category/1">Rings</NavLink>
-				<NavLink to="category/2">Necklaces</NavLink>
-				<NavLink to="category/3">Earrings</NavLink>
-				<NavLink to="category/4">Drinking Horns</NavLink>
+				<NavLink to="/">Home</NavLink>
+				<NavLink to="category/rings">Rings</NavLink>
+				<NavLink to="category/necklaces">Necklaces</NavLink>
+				<NavLink to="category/earrings">Earrings</NavLink>
+				<NavLink to="category/drinking-horns">Drinking Horns</NavLink>
 				<NavLink to="about-us">About</NavLink>
 			</nav>
 			<nav className="Footer__socials">
