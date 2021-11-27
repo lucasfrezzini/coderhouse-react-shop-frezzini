@@ -8,14 +8,20 @@ import 'swiper/modules/virtual/virtual.scss'; // Pagination module
 
 import './ItemDetail.scss';
 import { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ItemCount from 'components/ItemCount/ItemCount';
-import { FiCheck, FiRefreshCw, FiShoppingBag } from 'react-icons/fi';
+import { FiCheck, FiRefreshCw, FiShoppingBag, FiArrowLeft } from 'react-icons/fi';
 import { CartContext } from 'context/CartContext';
 
 // import imgSlider from '../../assets/images/slider.jpg'
 
 const ItemDetail = ({item}) => {
+	const [ loadingItemCount, setLoadingItemCount ] = useState(false);
+	const [ addCart, setAddCart ] = useState(false);
+	const [ quantity, setQuantity ] = useState(1);
+	const [ imagesSlider, setImagesSlider ] = useState([]);
+	const [ changeButton, setChangeButton ] = useState(false);
+	const navigate = useNavigate();
 
 	const {
 		id,
@@ -33,11 +39,6 @@ const ItemDetail = ({item}) => {
 		addToCart
 	} = useContext(CartContext);
 
-	const [ loadingItemCount, setLoadingItemCount ] = useState(false);
-	const [ addCart, setAddCart ] = useState(false);
-	const [ quantity, setQuantity ] = useState(1);
-	const [ imagesSlider, setImagesSlider ] = useState([]);
-	const [ changeButton, setChangeButton ] = useState(false);
 
 	const onAdd = (quantity) => {
 		setLoadingItemCount(true)
@@ -71,6 +72,9 @@ const ItemDetail = ({item}) => {
 
 	return (
 		<section className="ItemDetail" >
+			<div className="container">
+			<button onClick={() => navigate(-1)} className="btn btn--back btn--outline"><FiArrowLeft/> Go Back</button>
+			</div>
 			<div className="container" >
 				<div className="ItemDetail__slider">
 					<Swiper

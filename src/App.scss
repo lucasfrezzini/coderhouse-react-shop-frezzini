@@ -141,6 +141,20 @@ h3 {
 			stroke: white;
 		}
 	}
+
+	&--back {
+		margin-bottom: 60px;
+		svg {
+			margin-left: 0;
+			margin-right: 10px;
+		}
+
+		&:hover svg {
+			transform: translateX(-4px);
+		}
+	}
+
+
 }
 
 @keyframes spin {
