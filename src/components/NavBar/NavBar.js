@@ -9,7 +9,8 @@ import { FiServer } from 'react-icons/fi';
 
 const NavBar = () => {
 	const {calculateTotalItem} = useContext(CartContext)
-	const {toggleMenu, handleToggleMenu} = useContext(NavBarContext)
+	const {toggleMenu, handleToggleMenu, categories} = useContext(NavBarContext)
+	console.log('cat', categories)
 
 	return (
 		<header className="NavBar">
