@@ -12,6 +12,9 @@
 
 	&__sections {
 		margin: 50px 0;
+		display: flex;
+    flex-direction: column;
+    gap: 25px;
 
 		a {
 			color: white;
@@ -30,5 +33,13 @@
 		margin: 0 15px;
 	}
 
+}
+
+@media (min-width: 1200px) {
+	.Footer {
+		&__sections {
+			display: block;
+		}
+	}
 }
 

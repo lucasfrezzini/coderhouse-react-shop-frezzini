@@ -1,15 +1,23 @@
 import './ItemDetailContainer.scss';
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router';
+import { NavBarContext } from 'context/NavBarContext';
+
 import ItemDetail from 'components/ItemDetail/ItemDetail'
 import SkeletonItem from 'components/SkeletonItem/SkeletonItem';
-import { useParams } from 'react-router';
 
 const ItemDetailContainer = () => {
 	const API_URL = "https://619451004acf9c64d5cf9356.mockapi.com/items";
 	const {idProduct} = useParams();
 	const [item, setItem] = useState([]);
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(false);
+	const {toggleMenu, setToggleMenu} = useContext(NavBarContext);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		setToggleMenu(!toggleMenu);
+	}, [])
 
 	useEffect(() => {
 		setLoading(true);

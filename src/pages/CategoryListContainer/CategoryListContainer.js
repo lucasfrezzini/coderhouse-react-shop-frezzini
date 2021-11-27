@@ -1,6 +1,7 @@
 import './CategoryListContainer.scss';
 
 import React, { useState, useEffect } from 'react'
+
 import CategoryList from 'components/CategoryList/CategoryList'
 import SectionHeader from 'components/SectionHeader/SectionHeader';
 import SkeletonList from 'components/SkeletonList/SkeletonList';

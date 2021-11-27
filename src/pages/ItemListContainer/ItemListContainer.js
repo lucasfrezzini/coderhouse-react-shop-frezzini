@@ -1,6 +1,8 @@
 import './ItemListContainer.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router';
+import { NavBarContext } from 'context/NavBarContext';
+
 import ItemList from 'components/ItemList/ItemList';
 import SectionHeader from 'components/SectionHeader/SectionHeader';
 import SkeletonList from 'components/SkeletonList/SkeletonList';
@@ -13,6 +15,12 @@ const ItemListContainer = ({isHome}) => {
 	const [products, setProducts] = useState([]);
 	const [title, setTitle] = useState('');
 	const [loading, setLoading] = useState(false);
+	const {toggleMenu, setToggleMenu} = useContext(NavBarContext)
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		setToggleMenu(!toggleMenu);
+	}, [slugCategory])
 
 	const handleTitle = () => {
 		// 4 catedories -> 4 ids (1,2,3,4)

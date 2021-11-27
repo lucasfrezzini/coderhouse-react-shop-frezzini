@@ -1,6 +1,5 @@
 import "./App.scss";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartProvider from "context/CartContext";
 
 import ItemListContainer from "./pages/ItemListContainer/ItemListContainer";
@@ -11,18 +10,16 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import NotFound from './pages/NotFound/NotFound';
 import Cart from "pages/Cart/Cart";
+import NavBarProvider from "context/NavBarContext";
 
 function App() {
-
-	useEffect(() => {
-		window.scrollTo(0,0);
-	}, []);
 
   return (
     <div className="App">
 			<CartProvider>
+			<NavBarProvider>
 				<BrowserRouter>
-					<NavBar cart={10}/>
+					<NavBar/>
 						<Routes>
 							<Route index element={<Home />} />
 							<Route path="category" element={<ItemListContainer/>} >
@@ -35,6 +32,7 @@ function App() {
 						</Routes>
 					<Footer/>
 				</BrowserRouter>
+			</NavBarProvider>
 			</CartProvider>
     </div>
   );

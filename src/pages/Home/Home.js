@@ -1,15 +1,24 @@
+import { useContext, useEffect } from "react";
+import { NavBarContext } from "context/NavBarContext";
+
 import ItemListContainer from "pages/ItemListContainer/ItemListContainer";
 import HeroSection from "components/HeroSection/HeroSection";
 import SectionAboutUs from "pages/SectionAboutUs/SectionAboutUs";
 import ImageAboutUs from "components/ImageAboutUs/ImageAboutUs";
 import InfoAboutUs from "components/InfoAboutUs/InfoAboutUs";
 
-
 import imgAboutUs from 'assets/images/about-us-bg.png';
 import CategoryListContainer from "../CategoryListContainer/CategoryListContainer";
 
 
 function Home() {
+
+	const {toggleMenu, setToggleMenu} = useContext(NavBarContext)
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		setToggleMenu(!toggleMenu);
+	}, [])
 
   return (
     <>

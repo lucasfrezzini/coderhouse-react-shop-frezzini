@@ -1,5 +1,11 @@
 .ItemList {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-template-columns: 1fr;
 	grid-gap: 10px;
+}
+
+@media (min-width: 820px) {
+	.ItemList {
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	}
 }

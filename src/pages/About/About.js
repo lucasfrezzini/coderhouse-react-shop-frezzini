@@ -1,3 +1,6 @@
+import { useEffect, useContext } from "react";
+import { NavBarContext } from "context/NavBarContext";
+
 import SectionAboutUs from "pages/SectionAboutUs/SectionAboutUs";
 import ImageAboutUs from "components/ImageAboutUs/ImageAboutUs";
 import InfoAboutUs from "components/InfoAboutUs/InfoAboutUs";
@@ -8,6 +11,13 @@ import imgAboutUs2 from 'assets/images/about-us-bg-2.jpg';
 
 
 function About() {
+	const {toggleMenu, setToggleMenu} = useContext(NavBarContext)
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+		setToggleMenu(!toggleMenu)
+	}, [])
+
   return (
 		<SectionAboutUs>
 			<ImageAboutUs

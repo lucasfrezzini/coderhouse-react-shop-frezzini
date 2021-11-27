@@ -1,11 +1,15 @@
 import './Cart.scss';
 import SectionHeader from 'components/SectionHeader/SectionHeader'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { CartContext } from 'context/CartContext';
+import { NavBarContext } from 'context/NavBarContext';
+
 import { FiTrash2, FiSend, FiArrowRight } from 'react-icons/fi'
 
 import CartQuantity from 'components/CartQuantity/CartQuantity';
-import { CartContext } from 'context/CartContext';
 import CategoryListContainer from 'pages/CategoryListContainer/CategoryListContainer';
+
+
 
 const Cart = () => {
 	const {
@@ -16,6 +20,14 @@ const Cart = () => {
 		emptyCart,
 		calculateTotalItem,
 	} = useContext(CartContext);
+
+	const {toggleMenu, setToggleMenu} = useContext(NavBarContext)
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		setToggleMenu(!toggleMenu);
+	}, [])
+
 
 	return (
 		<section className="Cart">
