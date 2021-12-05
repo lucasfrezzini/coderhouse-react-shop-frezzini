@@ -13,8 +13,6 @@ import ItemCount from 'components/ItemCount/ItemCount';
 import { FiCheck, FiRefreshCw, FiShoppingBag, FiArrowLeft } from 'react-icons/fi';
 import { CartContext } from 'context/CartContext';
 
-// import imgSlider from '../../assets/images/slider.jpg'
-
 const ItemDetail = ({item}) => {
 	const [ loadingItemCount, setLoadingItemCount ] = useState(false);
 	const [ addCart, setAddCart ] = useState(false);
@@ -84,6 +82,7 @@ const ItemDetail = ({item}) => {
 						slidesPerView={1}
 						virtual
 					>
+						<SwiperSlide>{<img src={main_image} alt={name}/>}</SwiperSlide>
 						{imagesSlider.map((img, index) => (
 							<SwiperSlide
 								key={index}

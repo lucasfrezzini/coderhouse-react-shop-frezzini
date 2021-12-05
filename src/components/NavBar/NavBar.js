@@ -1,5 +1,5 @@
 import './NavBar.scss';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { CartContext } from 'context/CartContext';
 import { NavBarContext } from 'context/NavBarContext';
 import { NavLink, Link } from "react-router-dom";
@@ -8,9 +8,8 @@ import { FiServer } from 'react-icons/fi';
 
 
 const NavBar = () => {
-	const {calculateTotalItem} = useContext(CartContext)
-	const {toggleMenu, handleToggleMenu, categories} = useContext(NavBarContext)
-	console.log('cat', categories)
+	const { calculateTotalItem } = useContext(CartContext)
+	const { toggleMenu, handleToggleMenu } = useContext(NavBarContext)
 
 	return (
 		<header className="NavBar">

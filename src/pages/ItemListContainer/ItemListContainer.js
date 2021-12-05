@@ -2,6 +2,8 @@ import './ItemListContainer.scss';
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router';
 import { NavBarContext } from 'context/NavBarContext';
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { db } from 'firebase/config';
 
 import ItemList from 'components/ItemList/ItemList';
 import SectionHeader from 'components/SectionHeader/SectionHeader';
@@ -10,7 +12,6 @@ import { FiArrowRight } from 'react-icons/fi';
 
 
 const ItemListContainer = ({isHome}) => {
-	const API_URL = "https://619451004acf9c64d5cf9356.mockapi.com/items";
 	const {slugCategory, setSlugCategory} = useParams();
 	const [products, setProducts] = useState([]);
 	const [title, setTitle] = useState('');
@@ -69,25 +70,28 @@ const ItemListContainer = ({isHome}) => {
 	useEffect(() => {
 		const catSlugs = ['rings', 'necklaces', 'earrings', 'drinking-horns']
 		setLoading(true);
-		fetch(API_URL)
-			.then((res) => res.json())
-			.then((data) => {
-				if (data.length) {
+
+		// 1 - Make the reference
+		const productsReference = collection(db, 'products')
+		// 2 - GET on the reference
+		getDocs(productsReference)
+			.then( collection => {
+				const getProductsFromFirestore = collection.docs.map(doc => doc.data())
+				if (getProductsFromFirestore.length) {
 					if (isHome) {
-						setProducts(handleProductsHome(data))
+						setProducts(handleProductsHome(getProductsFromFirestore))
 					} else {
 						if (catSlugs.find( cat => cat === slugCategory)) {
-							setProducts(handleProductsCategory(data))
+							setProducts(handleProductsCategory(getProductsFromFirestore))
 						} else {
-							setProducts(data)
+							setProducts(getProductsFromFirestore)
 						}
 					}
 					handleTitle();
 				}
-				setTimeout(() => setLoading(false), 1000)
+				setTimeout(() => setLoading(false), 500)
 			})
 			.catch(e => console.log(e))
-
 
 	}, [slugCategory])
 

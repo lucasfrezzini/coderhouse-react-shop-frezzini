@@ -13,6 +13,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			background-color: #8f8f8f;
 
 			svg {
 				stroke: black;
@@ -20,12 +21,10 @@
 		}
 
 		.btn_quantity--quit {
-			background-color: #8f8f8f;
 			transform: rotate(90deg);
 		}
 
 		.btn_quantity--add {
-			background-color: #8f8f8f;
 			transform: rotate(-90deg);
 		}
 

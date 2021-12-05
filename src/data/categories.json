@@ -1,0 +1,26 @@
+[
+	{
+			"id": "01",
+			"slug": "rings",
+			"name": "Rings",
+			"image": "http://sociedaditaliana.org/api-vikings/assets/rings/ring-id-05.png"
+	},
+	{
+			"id": "02",
+			"slug": "necklaces",
+			"name": "Necklaces",
+			"image": "http://sociedaditaliana.org/api-vikings/assets/necklaces/necklace-id-16.png"
+	},
+	{
+			"id": "03",
+			"slug": "earrings",
+			"name": "Earrings",
+			"image": "http://sociedaditaliana.org/api-vikings/assets/earrings/earring-id-22.png"
+	},
+	{
+			"id": "04",
+			"slug": "drinking-horns",
+			"name": "Drinking Horns",
+			"image": "http://sociedaditaliana.org/api-vikings/assets/horns/horn-id-31.png"
+	}
+]

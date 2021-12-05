@@ -3,12 +3,13 @@ import './ItemDetailContainer.scss';
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router';
 import { NavBarContext } from 'context/NavBarContext';
+import { doc, getDoc } from 'firebase/firestore/lite';
+import { db } from 'firebase/config';
 
 import ItemDetail from 'components/ItemDetail/ItemDetail'
 import SkeletonItem from 'components/SkeletonItem/SkeletonItem';
 
 const ItemDetailContainer = () => {
-	const API_URL = "https://619451004acf9c64d5cf9356.mockapi.com/items";
 	const {idProduct} = useParams();
 	const [item, setItem] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -21,13 +22,17 @@ const ItemDetailContainer = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		fetch(API_URL)
-			.then((response) => response.json())
-			.then((data) => {
-				setItem(data.find(item => item.id === idProduct));
-				setTimeout(() => setLoading(false), 1000)
+
+		// 1 - Make the reference
+		const itemReference = doc(db, 'products', idProduct)
+		// 2 - GET on the reference
+		getDoc(itemReference)
+			.then(doc => {
+				const getItemFromFirestore = doc.data();
+				setItem(getItemFromFirestore);
+				setTimeout(() => setLoading(false), 500);
 			})
-			.catch(e => console.log('error fetch', e))
+			.catch(e => console.log('error Firebase item', e))
 	}, [idProduct])
 
 	return (

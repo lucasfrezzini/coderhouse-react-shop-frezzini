@@ -16,8 +16,7 @@
 			display: flex;
 		}
 	}
-	a {
-	}
+
 	img {
 		cursor: url('../../assets/images/eye.svg'), auto;
 		max-width: 250px;
@@ -54,6 +53,10 @@
 			a {
 				text-decoration: none;
 			}
+		}
+
+		h3:nth-child(1) {
+			width: 100px;
 		}
 
 		div {
