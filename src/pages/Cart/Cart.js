@@ -3,6 +3,7 @@ import SectionHeader from 'components/SectionHeader/SectionHeader'
 import React, { useContext, useEffect } from 'react'
 import { CartContext } from 'context/CartContext';
 import { NavBarContext } from 'context/NavBarContext';
+import { Link } from 'react-router-dom';
 
 import { FiTrash2, FiSend, FiArrowRight } from 'react-icons/fi'
 
@@ -96,12 +97,14 @@ const Cart = () => {
 				: <>
 					<div className="container Cart__empty">
 						<SectionHeader title="Nothing in your shopping bag yet..." />
-						<button
-							type="button"
-							className="btn btn--large"
-						>
-							Go to premium items <FiArrowRight/>
-						</button>
+						<Link to="/category">
+							<button
+								type="button"
+								className="btn btn--large"
+							>
+								Go to premium items <FiArrowRight/>
+							</button>
+						</Link>
 					</div>
 					<CategoryListContainer />
 					</>
