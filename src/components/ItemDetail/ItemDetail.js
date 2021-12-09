@@ -30,7 +30,8 @@ const ItemDetail = ({item}) => {
 		main_image,
 		material,
 		sizes,
-		size
+		size,
+		stock
 	} = item;
 
 	const {
@@ -57,6 +58,7 @@ const ItemDetail = ({item}) => {
 			main_image,
 			price,
 			name,
+			stock
 		});
 	}
 
@@ -71,7 +73,7 @@ const ItemDetail = ({item}) => {
 	return (
 		<section className="ItemDetail" >
 			<div className="container">
-			<button onClick={() => navigate(-1)} className="btn btn--back btn--outline"><FiArrowLeft/> Go Back</button>
+				<button onClick={() => navigate(-1)} className="btn btn--back btn--outline"><FiArrowLeft/> Go Back</button>
 			</div>
 			<div className="container" >
 				<div className="ItemDetail__slider">
@@ -132,7 +134,7 @@ const ItemDetail = ({item}) => {
 						loadingItemCount
 							? <button type="btn" className="btn btn--addingToCart">Adding to cart <FiRefreshCw/></button>
 							: !addCart
-								?	<ItemCount stock={10} initial={quantity} onAdd={onAdd}/>
+								?	<ItemCount stock={stock} initial={quantity} onAdd={onAdd}/>
 								: !changeButton
 									? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
 									: <Link to="/cart"><button type="btn" className="btn">Go to cart <FiShoppingBag/></button></Link>
