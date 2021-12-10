@@ -56,12 +56,14 @@ const Cart = () => {
 					<h3>Resume Cart Information</h3>
 					<h4>Order total: <span>$ {calculateTotalPrice().toFixed(2)}</span></h4>
 					<h4>Total Products: <span>{calculateTotalItem()}</span></h4>
-					<button
-						type="button"
-						className="btn"
-					>
-						CheckOut <FiSend/>
-					</button>
+					<Link to="/checkout">
+						<button
+							type="button"
+							className="btn"
+						>
+							CheckOut <FiSend/>
+						</button>
+					</Link>
 				</section>
 
 			</div>

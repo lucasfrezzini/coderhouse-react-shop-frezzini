@@ -1,0 +1,140 @@
+
+.Checkout {
+
+	&__form, &__resume {
+		header {
+			font-family: 'Julius Sans One', sans-serif;
+
+			h4 {
+				font-family: 'Lato', sans-serif;
+				font-weight: normal;
+				font-size: 18px;
+				margin: 10px 0 20px 0;
+			}
+		}
+	}
+
+	&__form {
+		background-color: #2C2C2C;
+		padding: 30px;
+		margin-bottom: 10px;
+
+		.form-group {
+			margin-bottom: 20px;
+			label, input {
+				display: inline-block;
+				width: 100%;
+			}
+
+			label {
+				font-family: 'Julius Sans One', sans-serif;
+				margin-bottom: 10px;
+			}
+
+			input {
+				font-family: 'Lato', sans-serif;
+				color: white;
+				background-color: #3C3C3C;
+				border: 1px solid #3C3C3C;
+				border: none;
+				padding: 15px 10px;
+				outline: none;
+			}
+
+			input.error {
+				border: 1px solid #BB3333;
+				background-color: #362D2D;
+				outline: none;
+			}
+
+			span.error {
+				margin-top: 10px;
+				display: flex;
+				align-items: center;
+
+				svg {
+					stroke: #FF3E3E;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+
+	&__resume {
+
+		& > section {
+			background-color: #181818;
+			padding: 30px;
+			margin-bottom: 10px;
+
+
+		}
+
+		.resume__summary {
+
+
+
+			li {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 15px 0;
+
+				> span:nth-child(1) {
+					font-weight: bold;
+				}
+
+				> span:nth-child(2) {
+					font-family: 'Julius Sans One', sans-serif;
+				}
+			}
+		}
+
+		.resume__feature {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+
+			svg {
+				font-size: 48px
+			}
+
+			header {
+				font-size: 18px;
+			}
+
+			footer {
+				margin-top: 10px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+@media (min-width: 800px){
+	.Checkout {
+		.grid {
+			display: grid;
+			gap: 10px;
+			grid-template-columns: 2fr 1fr;
+		}
+	}
+}
+
+@media (min-width: 1200px){
+	.Checkout {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&__form form{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+
+			button {
+				justify-self: start
+			}
+		}
+	}
+}

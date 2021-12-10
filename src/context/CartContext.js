@@ -3,6 +3,8 @@ const { createContext, useState } = require("react");
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+	const shipping = 94.45;
+	const giftcards = 2395.44;
 	const [cart, setCart] = useState([]);
 
 	const addToCart = item => {
@@ -57,6 +59,10 @@ const CartProvider = ({ children }) => {
 		return cart.reduce((acc, item) => acc + item.quantity, 0)
 	}
 
+	const calculateFinalPrice = () => {
+		return (calculateTotalPrice() + shipping + giftcards).toFixed(2)
+	}
+
 
 
 	return (
@@ -71,7 +77,10 @@ const CartProvider = ({ children }) => {
 				emptyCart,
 				calculateTotalPrice,
 				calculateSubTotalPrice,
-				calculateTotalItem
+				calculateTotalItem,
+				calculateFinalPrice,
+				shipping,
+				giftcards
 			}}
 		>
 			{ children }

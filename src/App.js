@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import NotFound from './pages/NotFound/NotFound';
 import Cart from "pages/Cart/Cart";
+import Checkout from "pages/Checkout/Checkout";
 import NavBarProvider from "context/NavBarContext";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 							</Route>
 							<Route path="product/:idProduct" element={<ItemDetailContainer/>} />
 							<Route path="cart" element={<Cart/>} />
+							<Route path="checkout" element={<Checkout/>} />
 							<Route path="about-us" element={<About />} />
 							<Route path="*" element={<NotFound />} />
 						</Routes>
