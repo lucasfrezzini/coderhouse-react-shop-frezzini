@@ -7,9 +7,11 @@ import { FiAlertTriangle, FiSend } from 'react-icons/fi'
 import { generateOrder } from "helpers/generateOrder"
 
 const CheckoutForm = () => {
+
 	const {
 		cart,
 		calculateFinalPrice,
+		emptyCart
 	} = useContext(CartContext)
 
 	const initialValues = {
@@ -29,7 +31,7 @@ const CheckoutForm = () => {
 				initialValues={initialValues}
 				validationSchema={checkoutSchema}
 				onSubmit={(values) => {
-					generateOrder(values, cart, calculateFinalPrice)
+					generateOrder(values, cart, calculateFinalPrice, emptyCart)
 				}}
 			>
 				{(formik) => (

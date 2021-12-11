@@ -2,7 +2,9 @@ import { collection, addDoc, Timestamp, query, where, documentId, writeBatch, ge
 import { db } from "firebase/config"
 import Swal from "sweetalert2"
 
-export const generateOrder = async (values, cart, calculateFinalPrice) => {
+
+export const generateOrder = async (values, cart, calculateFinalPrice, emptyCart) => {
+
 	const newOrder = {
 		buyer: {...values},
 		item: cart,
@@ -37,13 +39,14 @@ export const generateOrder = async (values, cart, calculateFinalPrice) => {
 				Swal.fire({
 					icon: 'success',
 					title: 'Order complete',
-					text: 'Thanks for your purchase!',
+					html: `Thanks for your purchase!<br/> Your Order ID: <strong><span style="color: #a5dc86"> ${res.id}</span></strong>`,
 					color: '#fff',
 					confirmButtonColor: '#222222',
 					confirmButtonText: 'Ok, thanks!',
 					background: '#181818',
 					backdrop: 'rgb(3 30 6 / 40%)'
 				})
+				emptyCart()
 			})
 			.catch(err => {
 				Swal.fire({
@@ -60,8 +63,11 @@ export const generateOrder = async (values, cart, calculateFinalPrice) => {
 	} else {
 		Swal.fire({
 			icon: 'error',
-			title: 'One or more items are not in stock',
-			text: 'Try again later or edit your cart :)',
+			title: 'We are very sorry',
+			html:
+			`There is no stock of the following products: <br/>
+			<strong> ${outOfStock.map(prod => prod.name).join(', ')} </strong>
+			`,
 			color: '#fff',
 			confirmButtonColor: '#222222',
 			confirmButtonText: 'Ok, thanks!',

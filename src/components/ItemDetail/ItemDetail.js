@@ -42,15 +42,14 @@ const ItemDetail = ({item}) => {
 	const onAdd = (quantity) => {
 		setLoadingItemCount(true)
 		setTimeout(() => {
-			setAddCart(true);
-			setLoadingItemCount(false);
+			setAddCart(true)
+			setLoadingItemCount(false)
 			setTimeout(()=>{
-				setChangeButton(true);
+				setChangeButton(true)
 			}, 1500)
 		}, 1000)
 
 		setQuantity(quantity)
-
 		addToCart({
 			quantity,
 			id,
@@ -58,7 +57,7 @@ const ItemDetail = ({item}) => {
 			price,
 			name,
 			stock
-		})
+		});
 	}
 
 	useEffect(() => {
