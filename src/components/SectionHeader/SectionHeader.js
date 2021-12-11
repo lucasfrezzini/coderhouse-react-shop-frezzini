@@ -1,5 +1,5 @@
-import './SectionHeader.scss';
-import { Link } from 'react-router-dom';
+import './SectionHeader.scss'
+import { Link } from 'react-router-dom'
 
 
 const SectionHeader = ({isHome, title, button, icon}) => {

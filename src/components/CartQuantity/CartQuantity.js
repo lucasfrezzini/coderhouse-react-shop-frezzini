@@ -1,30 +1,30 @@
 import './CartQuantity.scss';
 import React, { useContext, useState } from 'react'
 
-import { FiArrowRight } from "react-icons/fi";
-import { CartContext } from 'context/CartContext';
+import { FiArrowRight } from "react-icons/fi"
+import { CartContext } from 'context/CartContext'
 
 
 const CartQuantity = ({stock, initial, id}) => {
 	const {
 		incrementQuantity,
 		decrementQuantity
-	} = useContext(CartContext);
+	} = useContext(CartContext)
 
-	const initialquantity = initial || 1;
-	const [quantity, setQuantity] = useState(initialquantity);
+	const initialquantity = initial || 1
+	const [quantity, setQuantity] = useState(initialquantity)
 
 	const handleQuantityDown = () => {
 		if (quantity > 1 ) {
-			setQuantity(quantity - 1);
+			setQuantity(quantity - 1)
 			decrementQuantity(id)
 		}
 	}
 
 	const handleQuantityUp = () => {
 		if (quantity < stock) {
-			setQuantity(quantity + 1);
-			incrementQuantity(id);
+			setQuantity(quantity + 1)
+			incrementQuantity(id)
 		}
 	}
 

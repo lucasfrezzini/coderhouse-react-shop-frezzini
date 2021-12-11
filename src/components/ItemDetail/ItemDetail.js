@@ -1,25 +1,25 @@
 // Core modules for SwiperJS -> Slider
-import { Navigation, Virtual } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-import 'swiper/swiper.scss'; // core Swiper
-import 'swiper/modules/navigation/navigation.scss'; // Navigation module
-import 'swiper/modules/virtual/virtual.scss'; // Pagination module
+import { Navigation, Virtual } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js'
+import 'swiper/swiper.scss' // core Swiper
+import 'swiper/modules/navigation/navigation.scss' // Navigation module
+import 'swiper/modules/virtual/virtual.scss' // Pagination module
 // Core modules for SwiperJS -> Slider
 
-import './ItemDetail.scss';
-import { useState, useEffect, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import ItemCount from 'components/ItemCount/ItemCount';
-import { FiCheck, FiRefreshCw, FiShoppingBag, FiArrowLeft } from 'react-icons/fi';
-import { CartContext } from 'context/CartContext';
+import './ItemDetail.scss'
+import { useState, useEffect, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import ItemCount from 'components/ItemCount/ItemCount'
+import { FiCheck, FiRefreshCw, FiShoppingBag, FiArrowLeft } from 'react-icons/fi'
+import { CartContext } from 'context/CartContext'
 
 const ItemDetail = ({item}) => {
-	const [ loadingItemCount, setLoadingItemCount ] = useState(false);
-	const [ addCart, setAddCart ] = useState(false);
-	const [ quantity, setQuantity ] = useState(1);
-	const [ imagesSlider, setImagesSlider ] = useState([]);
-	const [ changeButton, setChangeButton ] = useState(false);
-	const navigate = useNavigate();
+	const [ loadingItemCount, setLoadingItemCount ] = useState(false)
+	const [ addCart, setAddCart ] = useState(false)
+	const [ quantity, setQuantity ] = useState(1)
+	const [ imagesSlider, setImagesSlider ] = useState([])
+	const [ changeButton, setChangeButton ] = useState(false)
+	const navigate = useNavigate()
 
 	const {
 		id,
@@ -47,11 +47,10 @@ const ItemDetail = ({item}) => {
 			setTimeout(()=>{
 				setChangeButton(true);
 			}, 1500)
-		}, 1000);
+		}, 1000)
 
-		// Luego irá logica para enviar al Context
-		// el {} con la info y el quantity debajo
-		setQuantity(quantity);
+		setQuantity(quantity)
+
 		addToCart({
 			quantity,
 			id,
@@ -59,7 +58,7 @@ const ItemDetail = ({item}) => {
 			price,
 			name,
 			stock
-		});
+		})
 	}
 
 	useEffect(() => {

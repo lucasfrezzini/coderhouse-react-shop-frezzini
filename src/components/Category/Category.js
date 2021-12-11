@@ -1,6 +1,6 @@
 import './Category.scss'
-import { Link } from 'react-router-dom';
-import React from 'react';
+import { Link } from 'react-router-dom'
+import React from 'react'
 
 const Category = ({name, image, slug}) => {
 	return (

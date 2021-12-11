@@ -1,11 +1,11 @@
 import './CartProductList.scss'
 
 import React from 'react'
-import { useContext } from 'react';
-import { CartContext } from 'context/CartContext';
+import { useContext } from 'react'
+import { CartContext } from 'context/CartContext'
 
 import { FiTrash2 } from 'react-icons/fi'
-import CartQuantity from 'components/CartQuantity/CartQuantity';
+import CartQuantity from 'components/CartQuantity/CartQuantity'
 
 const CartProductList = () => {
 	const {
@@ -13,7 +13,7 @@ const CartProductList = () => {
 		removeFromCart,
 		calculateSubTotalPrice,
 		emptyCart
-	} = useContext(CartContext);
+	} = useContext(CartContext)
 
 	return (
 		<section>

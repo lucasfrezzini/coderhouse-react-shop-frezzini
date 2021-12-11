@@ -1,7 +1,7 @@
-import './HeroSection.scss';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FiArrowRight } from "react-icons/fi";
+import './HeroSection.scss'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { FiArrowRight } from "react-icons/fi"
 
 const HeroSection = () => {
 	return (

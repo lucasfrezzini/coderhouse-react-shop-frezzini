@@ -1,12 +1,12 @@
-import './ItemCount.scss';
+import './ItemCount.scss'
 import React, { useState } from 'react'
 
-import { FiArrowRight, FiShoppingCart } from "react-icons/fi";
+import { FiArrowRight, FiShoppingCart } from "react-icons/fi"
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
-	const initialquantity = initial;
-	const [quantity, setQuantity] = useState(initialquantity);
+	const initialquantity = initial
+	const [quantity, setQuantity] = useState(initialquantity)
 
 	const handleQuantityDown = () => {
 		if (quantity > 0 ) { setQuantity(quantity - 1) }

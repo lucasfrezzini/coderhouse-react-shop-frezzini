@@ -1,10 +1,10 @@
-import './NavBar.scss';
-import { useContext, useEffect } from 'react';
-import { CartContext } from 'context/CartContext';
-import { NavBarContext } from 'context/NavBarContext';
-import { NavLink, Link } from "react-router-dom";
-import CartWidget from 'components/CartWidget/CartWidget';
-import { FiServer } from 'react-icons/fi';
+import './NavBar.scss'
+import { useContext } from 'react'
+import { CartContext } from 'context/CartContext'
+import { NavBarContext } from 'context/NavBarContext'
+import { NavLink, Link } from "react-router-dom"
+import CartWidget from 'components/CartWidget/CartWidget'
+import { FiServer } from 'react-icons/fi'
 
 
 const NavBar = () => {

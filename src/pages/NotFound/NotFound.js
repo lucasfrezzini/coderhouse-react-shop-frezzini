@@ -1,16 +1,16 @@
-import './NotFound.scss';
-import { useContext, useEffect } from 'react';
-import { NavBarContext } from 'context/NavBarContext';
+import './NotFound.scss'
+import { useContext, useEffect } from 'react'
+import { NavBarContext } from 'context/NavBarContext'
 
-import { Link } from "react-router-dom";
-import CategoryListContainer from "pages/CategoryListContainer/CategoryListContainer";
+import { Link } from "react-router-dom"
+import CategoryListContainer from "pages/CategoryListContainer/CategoryListContainer"
 
 function NotFound() {
 	const {toggleMenu, setToggleMenu} = useContext(NavBarContext)
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
-		setToggleMenu(!toggleMenu);
+		window.scrollTo(0, 0)
+		setToggleMenu(!toggleMenu)
 	}, [])
 
   return (
@@ -23,7 +23,7 @@ function NotFound() {
 		</div>
 		<CategoryListContainer />
 		</>
-  );
+  )
 }
 
-export default NotFound;
+export default NotFound

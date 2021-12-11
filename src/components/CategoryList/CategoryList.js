@@ -1,5 +1,5 @@
-import './CategoryList.scss';
-import Category from 'components/Category/Category';
+import './CategoryList.scss'
+import Category from 'components/Category/Category'
 
 const CategoryList = ({categories}) => {
 

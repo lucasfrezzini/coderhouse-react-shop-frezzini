@@ -6,7 +6,7 @@ const SectionAboutUs = ( {children }) => {
 			<section className="SectionAboutUs">
 					{children}
 			</section>
-    );
+    )
 }
 
 export default SectionAboutUs

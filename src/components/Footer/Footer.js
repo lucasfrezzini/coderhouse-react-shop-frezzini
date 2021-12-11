@@ -1,5 +1,5 @@
-import './Footer.scss';
-import { NavLink, Link } from 'react-router-dom';
+import './Footer.scss'
+import { NavLink, Link } from 'react-router-dom'
 import { FiTwitter, FiGithub, FiInstagram } from 'react-icons/fi'
 const Footer = () => {
 	return (

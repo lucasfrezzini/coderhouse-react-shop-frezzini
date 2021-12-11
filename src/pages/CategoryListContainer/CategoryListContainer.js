@@ -1,46 +1,38 @@
-import './CategoryListContainer.scss';
+import './CategoryListContainer.scss'
 
 import React, { useState, useEffect } from 'react'
-import { collection, getDocs } from 'firebase/firestore/lite';
-import { db } from 'firebase/config';
+import { collection, getDocs } from 'firebase/firestore/lite'
+import { db } from 'firebase/config'
 
 import CategoryList from 'components/CategoryList/CategoryList'
-import SectionHeader from 'components/SectionHeader/SectionHeader';
-import SkeletonList from 'components/SkeletonList/SkeletonList';
+import SectionHeader from 'components/SectionHeader/SectionHeader'
+import SkeletonList from 'components/SkeletonList/SkeletonList'
 
 const CategoryListContainer = (isHome) => {
 
-	const [categories, setCategories] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [categories, setCategories] = useState([])
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
-		setLoading(true);
-		// fetch(API_URL)
-		// 	.then((response) => response.json())
-		// 	.then((data) => {
-		// 		setCategories(data)
-		// 		setTimeout(() => setLoading(false), 1000)
-		// 	})
-		// 	.catch(e => console.log(e))
+		setLoading(true)
 
 		// 1 - Make the reference
-		const categoriesReference = collection(db, 'categories');
+		const categoriesReference = collection(db, 'categories')
 		// 2 - GET on the reference
 		getDocs(categoriesReference)
 			.then(collection => {
 				const getCategoriesFromFirestore = collection.docs.map(doc => doc.data())
-				setCategories(getCategoriesFromFirestore);
+				setCategories(getCategoriesFromFirestore)
 				setTimeout(() => setLoading(false), 500)
 			})
 			.catch(e => console.log(e))
-
 	}, [])
 
 	return (
 		<section className="CategoryListContainer" >
 			<div className="container" >
 				<SectionHeader
-					isHome
+					isHome={isHome}
 					title="Our Categories"
 				/>
 
@@ -54,4 +46,4 @@ const CategoryListContainer = (isHome) => {
 	)
 }
 
-export default CategoryListContainer;
+export default CategoryListContainer

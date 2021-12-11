@@ -1,6 +1,6 @@
-import './InfoAboutUs.scss';
-import { Link } from 'react-router-dom';
-import { FiArrowRight } from 'react-icons/fi';
+import './InfoAboutUs.scss'
+import { Link } from 'react-router-dom'
+import { FiArrowRight } from 'react-icons/fi'
 
 const InfoAboutUs = ({title, text, button, children}) => {
     return (
@@ -20,7 +20,7 @@ const InfoAboutUs = ({title, text, button, children}) => {
 							</Link>
 						}
         </div>
-    );
+    )
 }
 
 export default InfoAboutUs

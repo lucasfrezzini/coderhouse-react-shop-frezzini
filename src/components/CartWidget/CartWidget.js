@@ -1,6 +1,6 @@
-import './CartWidget.scss';
-import { Link } from 'react-router-dom';
-import { FiShoppingCart } from "react-icons/fi";
+import './CartWidget.scss'
+import { Link } from 'react-router-dom'
+import { FiShoppingCart } from "react-icons/fi"
 
 const CartWidget = ({ counterItems }) => {
     return (

@@ -1,13 +1,13 @@
-import { useEffect, useContext } from "react";
-import { NavBarContext } from "context/NavBarContext";
+import { useEffect, useContext } from "react"
+import { NavBarContext } from "context/NavBarContext"
 
-import SectionAboutUs from "pages/SectionAboutUs/SectionAboutUs";
-import ImageAboutUs from "components/ImageAboutUs/ImageAboutUs";
-import InfoAboutUs from "components/InfoAboutUs/InfoAboutUs";
+import SectionAboutUs from "pages/SectionAboutUs/SectionAboutUs"
+import ImageAboutUs from "components/ImageAboutUs/ImageAboutUs"
+import InfoAboutUs from "components/InfoAboutUs/InfoAboutUs"
 
 
-import imgAboutUs from 'assets/images/about-us-bg.png';
-import imgAboutUs2 from 'assets/images/about-us-bg-2.jpg';
+import imgAboutUs from 'assets/images/about-us-bg.png'
+import imgAboutUs2 from 'assets/images/about-us-bg-2.jpg'
 
 
 function About() {

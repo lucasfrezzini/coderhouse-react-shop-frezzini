@@ -1,16 +1,16 @@
 import './Item.scss'
-import { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FiShoppingCart } from 'react-icons/fi';
-import { CartContext } from 'context/CartContext';
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { FiShoppingCart } from 'react-icons/fi'
+import { CartContext } from 'context/CartContext'
 
 const Item = ({name, category, price, main_image, id, stock}) => {
-	const quantity = 1;
+	const quantity = 1
 
 	const {
 		addToCart,
 		isInCart,
-	} = useContext(CartContext);
+	} = useContext(CartContext)
 
 	const handleAddToCart = () => {
 		addToCart({
@@ -20,7 +20,7 @@ const Item = ({name, category, price, main_image, id, stock}) => {
 			main_image,
 			price,
 			name,
-		});
+		})
 	}
 
 	return (

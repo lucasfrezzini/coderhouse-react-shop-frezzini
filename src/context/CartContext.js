@@ -1,11 +1,11 @@
-const { createContext, useState } = require("react");
+const { createContext, useState } = require("react")
 
-export const CartContext = createContext();
+export const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
-	const shipping = 94.45;
-	const giftcards = 2395.44;
-	const [cart, setCart] = useState([]);
+	const shipping = 94.45
+	const giftcards = 2395.44
+	const [cart, setCart] = useState([])
 
 	const addToCart = item => {
 		if (isInCart(item.id)) {
@@ -30,40 +30,37 @@ const CartProvider = ({ children }) => {
 	}
 
 	const incrementQuantity = (id) => {
-		const idx = cart.findIndex( item => item.id === id);
-		let newCart = [...cart];
-		newCart[idx].quantity =  newCart[idx].quantity + 1;
-		setCart(newCart);
+		const idx = cart.findIndex( item => item.id === id)
+		let newCart = [...cart]
+		newCart[idx].quantity =  newCart[idx].quantity + 1
+		setCart(newCart)
 	}
 	const decrementQuantity = (id) => {
-		const idx = cart.findIndex( item => item.id === id);
-		let newCart = [...cart];
-		newCart[idx].quantity =  newCart[idx].quantity - 1;
-		setCart(newCart);
+		const idx = cart.findIndex( item => item.id === id)
+		let newCart = [...cart]
+		newCart[idx].quantity =  newCart[idx].quantity - 1
+		setCart(newCart)
 	}
 
 	const emptyCart = () => {
 		setCart([])
 	}
 
-
 	const calculateTotalPrice = () => {
-		return cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+		return Number(cart.reduce((acc, item) => acc + item.price * item.quantity, 0))
 	}
 
 	const calculateSubTotalPrice = (price, quantity) => {
-		return (price * quantity).toFixed(2)
+		return Number((price * quantity).toFixed(2))
 	}
 
 	const calculateTotalItem = () => {
-		return cart.reduce((acc, item) => acc + item.quantity, 0)
+		return Number(cart.reduce((acc, item) => acc + item.quantity, 0))
 	}
 
 	const calculateFinalPrice = () => {
-		return (calculateTotalPrice() + shipping + giftcards).toFixed(2)
+		return Number(calculateTotalPrice() + shipping + giftcards).toFixed(2)
 	}
-
-
 
 	return (
 		<CartContext.Provider
