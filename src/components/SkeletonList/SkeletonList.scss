@@ -1,6 +1,6 @@
 .SkeletonList {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-template-columns: 1fr;
 	grid-gap: 10px;
 
 	&__Item {
@@ -20,3 +20,10 @@
     background-position: 340px
 	}
 }
+
+@media (min-width: 820px) {
+	.SkeletonList{
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	}
+}
+

@@ -6,6 +6,7 @@
 
 		.ItemDetail__slider {
 			max-width: 600px;
+			margin-bottom: 40px;
 
 			img {
 				width: 100%;
@@ -14,7 +15,6 @@
 		}
 
 		.ItemDetail__info {
-			padding: 0 100px 0 50px;
 
 			h1 {
 				font-size: 36px;
@@ -38,8 +38,6 @@
 				margin: 20px 0 40px 0;
 			}
 
-
-
 		}
 	}
 
@@ -51,6 +49,18 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 		}
+
+		.container{
+			.ItemDetail__slider {
+				margin-bottom: 0px;
+			}
+
+			.ItemDetail__info {
+				padding: 0 100px 0 50px;
+			}
+		}
+
+
 	}
 }
 

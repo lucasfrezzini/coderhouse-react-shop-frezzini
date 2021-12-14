@@ -1,17 +1,19 @@
 import "./App.scss"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import CartProvider from "context/CartContext"
+import NavBarProvider from "context/NavBarContext"
 
 import ItemListContainer from "./pages/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer"
-import NavBar from "./components/NavBar/NavBar"
-import Footer from "./components/Footer/Footer"
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import NotFound from './pages/NotFound/NotFound'
 import Cart from "pages/Cart/Cart"
 import Checkout from "pages/Checkout/Checkout"
-import NavBarProvider from "context/NavBarContext"
+
+import NavBar from "./components/NavBar/NavBar"
+import Footer from "./components/Footer/Footer"
 
 function App() {
 

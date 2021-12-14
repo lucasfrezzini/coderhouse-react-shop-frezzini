@@ -10,7 +10,7 @@ import './ItemDetail.scss'
 import { useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ItemCount from 'components/ItemCount/ItemCount'
-import { FiCheck, FiRefreshCw, FiShoppingBag, FiArrowLeft } from 'react-icons/fi'
+import { FiCheck, FiRefreshCw, FiShoppingBag, FiArrowLeft, FiAlertOctagon } from 'react-icons/fi'
 import { CartContext } from 'context/CartContext'
 
 const ItemDetail = ({item}) => {
@@ -33,9 +33,10 @@ const ItemDetail = ({item}) => {
 		size,
 		stock
 	} = item;
-
+	console.log('stock', stock)
 	const {
-		addToCart
+		addToCart,
+		isInCart,
 	} = useContext(CartContext);
 
 
@@ -57,7 +58,7 @@ const ItemDetail = ({item}) => {
 			price,
 			name,
 			stock
-		});
+		})
 	}
 
 	useEffect(() => {
@@ -129,13 +130,17 @@ const ItemDetail = ({item}) => {
 					}
 					<div>
 						{
-						loadingItemCount
-							? <button type="btn" className="btn btn--addingToCart">Adding to cart <FiRefreshCw/></button>
-							: !addCart
-								?	<ItemCount stock={stock} initial={quantity} onAdd={onAdd}/>
-								: !changeButton
-									? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
-									: <Link to="/cart"><button type="btn" className="btn">Go to cart <FiShoppingBag/></button></Link>
+						isInCart(id)
+							? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
+							:	!(stock > 0)
+								? <button type="btn" className="btn btn--outline btn--noStock">No stock <FiAlertOctagon/></button>
+								: loadingItemCount
+									? <button type="btn" className="btn btn--addingToCart">Adding to cart <FiRefreshCw/></button>
+									: !addCart
+										?	<ItemCount stock={stock} initial={quantity} onAdd={onAdd}/>
+										: !changeButton
+											? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
+											: <Link to="/cart"><button type="btn" className="btn">Go to cart <FiShoppingBag/></button></Link>
 						}
 					</div>
 				</div>

@@ -118,6 +118,22 @@ h3 {
 		}
 	}
 
+	&--inCart{
+		cursor: inherit;
+
+		svg {
+			stroke: rgb(82, 150, 82);
+		}
+	}
+
+	&--noStock{
+		cursor: inherit;
+
+		svg {
+			stroke: orange;
+		}
+	}
+
 	&--addingToCart {
 		background-color: orange;
 

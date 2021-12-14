@@ -2,8 +2,8 @@
 
 	&__Item {
 		margin: 90px auto 60px auto;
-		width: 1000px;
-		height: 600px;
+		width: 90%;
+		aspect-ratio: 1/2;
 		background: linear-gradient(to right, #3b3b3b 0%, #2C2C2C 50%, #3b3b3b 100%);
 		animation: load 3s linear infinite;
 	}
@@ -17,5 +17,14 @@
 	}
   100% {
     background-position: 1000px
+	}
+}
+
+@media (min-width: 820px) {
+	.SkeletonItem {
+		&__Item {
+			width: 1000px;
+			height: 600px;
+		}
 	}
 }

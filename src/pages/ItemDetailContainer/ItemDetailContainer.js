@@ -13,11 +13,11 @@ const ItemDetailContainer = () => {
 	const {idProduct} = useParams();
 	const [item, setItem] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const {toggleMenu, setToggleMenu} = useContext(NavBarContext);
+	const {setToggleMenu} = useContext(NavBarContext);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		setToggleMenu(!toggleMenu);
+		setToggleMenu(false);
 	}, [])
 
 	useEffect(() => {

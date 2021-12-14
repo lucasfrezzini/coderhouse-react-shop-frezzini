@@ -13,11 +13,11 @@ import CategoryListContainer from "../CategoryListContainer/CategoryListContaine
 
 function Home() {
 
-	const {toggleMenu, setToggleMenu} = useContext(NavBarContext)
+	const {setToggleMenu} = useContext(NavBarContext)
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
-		setToggleMenu(!toggleMenu)
+		setToggleMenu(false)
 	}, [])
 
   return (

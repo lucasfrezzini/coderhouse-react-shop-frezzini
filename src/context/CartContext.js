@@ -1,4 +1,4 @@
-const { createContext, useState } = require("react")
+import { useState, createContext } from 'react'
 
 export const CartContext = createContext()
 
@@ -9,9 +9,9 @@ const CartProvider = ({ children }) => {
 
 	const addToCart = item => {
 		if (isInCart(item.id)) {
-			const idx = cart.findIndex(i => i.id === item.id);
-			let newCart = [...cart];
-			newCart[idx].quantity =  newCart[idx].quantity + 1;
+			const idx = cart.findIndex(i => i.id === item.id)
+			let newCart = [...cart]
+			newCart[idx].quantity =  newCart[idx].quantity + 1
 			setCart(newCart);
 		} else {
 			setCart([

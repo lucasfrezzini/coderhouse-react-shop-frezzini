@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-
-
-const { createContext } = require("react/cjs/react.development")
+import React, { useState, createContext } from 'react'
 
 export const NavBarContext = createContext(false)
 

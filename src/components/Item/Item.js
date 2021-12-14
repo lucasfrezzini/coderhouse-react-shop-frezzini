@@ -1,7 +1,7 @@
 import './Item.scss'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { FiShoppingCart } from 'react-icons/fi'
+import { FiAlertOctagon, FiCheckCircle, FiShoppingCart } from 'react-icons/fi'
 import { CartContext } from 'context/CartContext'
 
 const Item = ({name, category, price, main_image, id, stock}) => {
@@ -26,16 +26,29 @@ const Item = ({name, category, price, main_image, id, stock}) => {
 	return (
 		<div className="Item" >
 			{
-				!isInCart(id) &&
-					<>
-					<button
+			!isInCart(id)
+				?
+					stock >= 1
+					? <button
 						onClick={handleAddToCart}
 						type="button"
 						className="btn btn--addCart"
 					>
 						Add to cart <FiShoppingCart/>
 					</button>
-					</>
+					: <button
+							type="button"
+							className="btn btn--addCart btn--noStock"
+						>
+							No stock <FiAlertOctagon/>
+						</button>
+
+				: <button
+						type="button"
+						className="btn btn--addCart btn--inCart"
+					>
+						In cart <FiCheckCircle/>
+					</button>
 			}
 			<Link to={`/product/${id}`}><img src={main_image} alt={name} loading="lazy" /></Link>
 			<header>
