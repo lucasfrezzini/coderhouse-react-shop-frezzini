@@ -2,12 +2,14 @@ import './NavBar.scss'
 import { useContext } from 'react'
 import { CartContext } from 'context/CartContext'
 import { NavBarContext } from 'context/NavBarContext'
+import { CategoriesContext } from 'context/CategoriesContext'
 import { NavLink, Link } from "react-router-dom"
 import CartWidget from 'components/CartWidget/CartWidget'
 import { FiServer } from 'react-icons/fi'
 
 
 const NavBar = () => {
+	const { categories } = useContext(CategoriesContext)
 	const { calculateTotalItem } = useContext(CartContext)
 	const { toggleMenu, handleToggleMenu } = useContext(NavBarContext)
 
@@ -18,10 +20,11 @@ const NavBar = () => {
 				<nav className={toggleMenu && `showMenu`}>
 					<ul>
 						<li><NavLink to="/">Home</NavLink></li>
-						<li><NavLink to="category/rings">Rings</NavLink></li>
-						<li><NavLink to="category/necklaces">Necklaces</NavLink></li>
-						<li><NavLink to="category/earrings">Earrings</NavLink></li>
-						<li><NavLink to="category/drinking-horns">Drinking Horns</NavLink></li>
+						{
+						categories.map((cat, idx) =>
+							<li key={idx}><NavLink to={`category/${cat.slug}`}>{cat.name}</NavLink></li>
+						)
+						}
 						<li><NavLink to="about-us">About</NavLink></li>
 					</ul>
 				</nav>

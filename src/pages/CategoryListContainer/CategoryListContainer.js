@@ -1,31 +1,20 @@
 import './CategoryListContainer.scss'
 
-import React, { useState, useEffect } from 'react'
-import { collection, getDocs } from 'firebase/firestore/lite'
-import { db } from 'firebase/config'
+import React, { useState, useEffect, useContext } from 'react'
+import { CategoriesContext } from 'context/CategoriesContext'
 
 import CategoryList from 'components/CategoryList/CategoryList'
 import SectionHeader from 'components/SectionHeader/SectionHeader'
 import SkeletonList from 'components/SkeletonList/SkeletonList'
 
-const CategoryListContainer = (isHome) => {
 
-	const [categories, setCategories] = useState([])
+const CategoryListContainer = (isHome) => {
+	const { categories } = useContext(CategoriesContext)
 	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		setLoading(true)
-
-		// 1 - Make the reference
-		const categoriesReference = collection(db, 'categories')
-		// 2 - GET on the reference
-		getDocs(categoriesReference)
-			.then(collection => {
-				const getCategoriesFromFirestore = collection.docs.map(doc => doc.data())
-				setCategories(getCategoriesFromFirestore)
-				setTimeout(() => setLoading(false), 500)
-			})
-			.catch(e => console.log(e))
+		setTimeout(() => setLoading(false), 500)
 	}, [])
 
 	return (

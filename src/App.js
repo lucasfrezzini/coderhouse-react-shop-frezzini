@@ -14,11 +14,13 @@ import Checkout from "pages/Checkout/Checkout"
 
 import NavBar from "./components/NavBar/NavBar"
 import Footer from "./components/Footer/Footer"
+import CategoriesProvider from "context/CategoriesContext"
 
 function App() {
 
   return (
     <div className="App">
+			<CategoriesProvider>
 			<CartProvider>
 			<NavBarProvider>
 				<BrowserRouter>
@@ -38,6 +40,7 @@ function App() {
 				</BrowserRouter>
 			</NavBarProvider>
 			</CartProvider>
+			</CategoriesProvider>
     </div>
   );
 }

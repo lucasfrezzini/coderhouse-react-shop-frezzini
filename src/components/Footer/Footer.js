@@ -1,16 +1,23 @@
 import './Footer.scss'
+import { useContext } from 'react'
+import { CategoriesContext } from 'context/CategoriesContext'
+
 import { NavLink, Link } from 'react-router-dom'
 import { FiTwitter, FiGithub, FiInstagram } from 'react-icons/fi'
+
 const Footer = () => {
+	const { categories } = useContext(CategoriesContext)
+
 	return (
 		<footer className="Footer">
 			<Link to="/" className="logo">VALKYUM</Link>
 			<nav className="Footer__sections">
 				<NavLink to="/">Home</NavLink>
-				<NavLink to="category/rings">Rings</NavLink>
-				<NavLink to="category/necklaces">Necklaces</NavLink>
-				<NavLink to="category/earrings">Earrings</NavLink>
-				<NavLink to="category/drinking-horns">Drinking Horns</NavLink>
+				{
+				categories.map((cat, idx) =>
+					<NavLink key={idx} to={`category/${cat.slug}`}>{cat.name}</NavLink>
+				)
+				}
 				<NavLink to="about-us">About</NavLink>
 			</nav>
 			<nav className="Footer__socials">
