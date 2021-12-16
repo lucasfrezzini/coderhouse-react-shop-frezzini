@@ -134,23 +134,23 @@ h3 {
 		}
 	}
 
-	&--addingToCart {
-		background-color: orange;
+	// &--addingToCart {
+	// 	background-color: orange;
 
-		svg {
-			animation-name: spin;
-			animation-duration: 500ms;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
-		}
-	}
+	// 	svg {
+	// 		animation-name: spin;
+	// 		animation-duration: 500ms;
+	// 		animation-iteration-count: infinite;
+	// 		animation-timing-function: linear;
+	// 	}
+	// }
 
 	&--loadedToCart{
-		background-color: rgb(82, 150, 82);
+		background-color: orange;
 		color: white;
-		opacity: .5;
 		animation-name: show;
 		animation-duration: 1500ms;
+		animation-fill-mode: forwards;
 		animation-timing-function: linear;
 
 		svg {
@@ -170,23 +170,28 @@ h3 {
 		}
 	}
 
-
 }
 
-@keyframes spin {
-	from {
-			transform:rotate(0deg);
-	}
-	to {
-			transform:rotate(360deg);
-	}
-}
+// @keyframes spin {
+// 	from {
+// 			transform:rotate(0deg);
+// 	}
+// 	to {
+// 			transform:rotate(360deg);
+// 	}
+// }
 
 @keyframes show {
-	from {
-		opacity: .5;
+	0% {
+		background-color: orange;
+		color: white;
 	}
-	to {
-		opacity: 1;
+	55% {
+		color: white;
+		background-color: rgb(82, 150, 82);
+	}
+	100% {
+		color: white;
+		background-color: rgb(82, 150, 82);
 	}
 }

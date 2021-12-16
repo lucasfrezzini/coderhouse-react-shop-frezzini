@@ -10,15 +10,13 @@ import './ItemDetail.scss'
 import { useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ItemCount from 'components/ItemCount/ItemCount'
-import { FiCheck, FiRefreshCw, FiShoppingBag, FiArrowLeft, FiAlertOctagon } from 'react-icons/fi'
+import { FiCheck, FiShoppingBag, FiArrowLeft, FiAlertOctagon } from 'react-icons/fi'
 import { CartContext } from 'context/CartContext'
 
 const ItemDetail = ({item}) => {
 	const [ loadingItemCount, setLoadingItemCount ] = useState(false)
-	const [ addCart, setAddCart ] = useState(false)
 	const [ quantity, setQuantity ] = useState(1)
 	const [ imagesSlider, setImagesSlider ] = useState([])
-	const [ changeButton, setChangeButton ] = useState(false)
 	const navigate = useNavigate()
 
 	const {
@@ -32,23 +30,26 @@ const ItemDetail = ({item}) => {
 		sizes,
 		size,
 		stock
-	} = item;
-	console.log('stock', stock)
+	} = item
+
 	const {
 		addToCart,
 		isInCart,
-	} = useContext(CartContext);
+	} = useContext(CartContext)
 
+	const isAddingToCart = (isAdding) => {
+		if (isAdding) {
+			return <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
+		} else {
+			return <ItemCount stock={stock} initial={quantity} onAdd={onAdd}/>
+		}
+	}
 
 	const onAdd = (quantity) => {
 		setLoadingItemCount(true)
-		setTimeout(() => {
-			setAddCart(true)
+		setTimeout(()=>{
 			setLoadingItemCount(false)
-			setTimeout(()=>{
-				setChangeButton(true)
-			}, 1500)
-		}, 1000)
+		}, 1500)
 
 		setQuantity(quantity)
 		addToCart({
@@ -103,44 +104,32 @@ const ItemDetail = ({item}) => {
 					</div>
 					{
 						sizes &&
-						<>
 						<div>
 							<h3>Sizes</h3>
 							<p>{sizes}</p>
 						</div>
-						</>
 					}
 					{
 						material &&
-						<>
 						<div>
 							<h3>Material</h3>
 							<p>{material}</p>
 						</div>
-						</>
 					}
 					{
 						size &&
-						<>
 						<div>
 							<h3>Size</h3>
 							<p>{size}</p>
 						</div>
-						</>
 					}
 					<div>
 						{
-						isInCart(id)
-							? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
+						isInCart(id) && !loadingItemCount
+							? <Link to="/cart"><button type="btn" className="btn">Go to cart <FiShoppingBag/></button></Link>
 							:	!(stock > 0)
 								? <button type="btn" className="btn btn--outline btn--noStock">No stock <FiAlertOctagon/></button>
-								: loadingItemCount
-									? <button type="btn" className="btn btn--addingToCart">Adding to cart <FiRefreshCw/></button>
-									: !addCart
-										?	<ItemCount stock={stock} initial={quantity} onAdd={onAdd}/>
-										: !changeButton
-											? <button type="btn" className="btn btn--loadedToCart">Loaded to cart <FiCheck/></button>
-											: <Link to="/cart"><button type="btn" className="btn">Go to cart <FiShoppingBag/></button></Link>
+								: isAddingToCart(loadingItemCount)
 						}
 					</div>
 				</div>
